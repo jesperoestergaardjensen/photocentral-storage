@@ -1,0 +1,24 @@
+{
+    "name": "jesperoestergaardjensen/photocentral-storage",
+    "description": "Repository that define photo storage(s) for PhotoCentral Main",
+    "license": "gpl-3.0",
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhotoCentralStorage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhotoCentralStorage\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
