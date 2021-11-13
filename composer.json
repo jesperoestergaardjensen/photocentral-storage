@@ -3,7 +3,8 @@
     "description": "Repository that define photo storage(s) for PhotoCentral Main",
     "license": "gpl-3.0",
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "ext-exif": "*"
     },
     "autoload": {
         "psr-4": {
