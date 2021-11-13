@@ -1,5 +1,10 @@
 <?php
 
+namespace PhotoCentralStorage\Factory;
+
+use PhotoCentralStorage\Exception\PhotoCentralStorageException;
+use PhotoCentralStorage\Model\ExifData;
+
 class ExifDataFactory
 {
     /**

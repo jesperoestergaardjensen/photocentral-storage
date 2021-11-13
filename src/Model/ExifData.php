@@ -1,5 +1,7 @@
 <?php
 
+namespace PhotoCentralStorage\Model;
+
 class ExifData
 {
     private int $width;
