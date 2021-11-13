@@ -59,8 +59,17 @@ class ExifDataFactory
                 $datePhotoTaken = $exif['DateTimeOriginal'];
             }
 
-            $latitude = self::getGps($exif["GPSLatitude"], $exif['GPSLatitudeRef']);
-            $longitude = self::getGps($exif["GPSLongitude"], $exif['GPSLongitudeRef']);
+            if (isset($exif["GPSLatitude"]) && isset($exif['GPSLatitudeRef'])) {
+                $latitude = self::getGps($exif["GPSLatitude"], $exif['GPSLatitudeRef']);
+            } else {
+                $latitude = null;
+            }
+
+            if ($latitude !== null && isset($exif["GPSLongitude"]) && isset($exif['GPSLongitudeRef'])) {
+                $longitude = self::getGps($exif["GPSLongitude"], $exif['GPSLongitudeRef']);
+            } else {
+                $longitude = null;
+            }
 
             return new ExifData(
                 $exif['COMPUTED']['Width'],
