@@ -2,6 +2,8 @@
 
 namespace PhotoCentralStorage;
 
+use PhotoCentralStorage\Model\ImageDimensions;
+
 interface PhotoStorage
 {
     /**
@@ -41,4 +43,6 @@ interface PhotoStorage
      * @return PhotoCollection[]
      */
     public function listPhotoCollections(int $limit): array;
+
+    public function getPhotoPath(string $photo_uuid, ImageDimensions $image_dimensions): string;
 }
