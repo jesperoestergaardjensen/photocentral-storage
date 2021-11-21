@@ -4,15 +4,15 @@ namespace PhotoCentralStorage\Model\PhotoFilter;
 
 class PhotoCollectionUuidFilter implements PhotoFilter
 {
-    private array $photo_collection_uuid_list;
+    private array $photo_collection_id_list;
 
-    public function __construct(array $photo_uuid_list)
+    public function __construct(array $photo_collection_id_list)
     {
-        $this->photo_collection_uuid_list = $photo_uuid_list;
+        $this->photo_collection_id_list = $photo_collection_id_list;
     }
 
-    public function getPhotoUuidList(): array
+    public function getPhotoCollectionIdList(): array
     {
-        return $this->photo_collection_uuid_list;
+        return $this->photo_collection_id_list;
     }
 }
