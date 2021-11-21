@@ -15,13 +15,13 @@ interface PhotoStorage
     public function searchPhotos(string $search_string): array;
 
     /**
-     * @param PhotoFilter[] $photo_filter
-     * @param PhotoSorting $photo_sorting
-     * @param int          $limit
+     * @param PhotoFilter[]|null $photo_filters
+     * @param PhotoSorting|null  $photo_sorting
+     * @param int                $limit
      *
      * @return Photo[]
      */
-    public function listPhotos(array $photo_filter, PhotoSorting $photo_sorting, int $limit): array;
+    public function listPhotos(array $photo_filters = null, PhotoSorting $photo_sorting = null, int $limit = 5): array;
 
     public function getPhoto(string $photo_uuid): Photo;
 
