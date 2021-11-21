@@ -3,7 +3,8 @@
 namespace PhotoCentralStorage;
 
 use PhotoCentralStorage\Model\ImageDimensions;
-use PhotoCentralStorage\Model\Sorting\PhotoSorting;
+use PhotoCentralStorage\Model\PhotoFilter\PhotoFilter;
+use PhotoCentralStorage\Model\PhotoSorting\PhotoSorting;
 
 interface PhotoStorage
 {
