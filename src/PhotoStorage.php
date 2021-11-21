@@ -26,15 +26,6 @@ interface PhotoStorage
 
     public function getPhoto(string $photo_uuid): Photo;
 
-    /**
-     * @deprecated Use listPhotos with PhotoUuidFilter instead
-     *
-     * @param array $photo_uuid_list
-     *
-     * @return Photo[]
-     */
-    public function getPhotos(array $photo_uuid_list): array;
-
     public function softDeletePhoto(string $photo_uuid): bool;
 
     public function undoSoftDeletePhoto(string $photo_uuid): bool;
