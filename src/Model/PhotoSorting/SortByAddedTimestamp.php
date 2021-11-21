@@ -2,6 +2,6 @@
 
 namespace PhotoCentralStorage\Model\PhotoSorting;
 
-class SortByAddedTimestamp
+class SortByAddedTimestamp extends BasicSorting implements PhotoSorting
 {
 }
