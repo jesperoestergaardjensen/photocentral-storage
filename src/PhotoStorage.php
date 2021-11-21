@@ -3,6 +3,7 @@
 namespace PhotoCentralStorage;
 
 use PhotoCentralStorage\Model\ImageDimensions;
+use PhotoCentralStorage\Model\Sorting\PhotoSorting;
 
 interface PhotoStorage
 {
@@ -14,19 +15,19 @@ interface PhotoStorage
     public function searchPhotos(string $search_string): array;
 
     /**
-     * @param int        $start_unix_timestamp
-     * @param int        $end_unix_timestamp
-     * @param            $order_by
-     * @param int        $limit
-     * @param array|null $photo_collection_filter_uuid_list
+     * @param PhotoFilter[] $photo_filter
+     * @param PhotoSorting $photo_sorting
+     * @param int          $limit
      *
      * @return Photo[]
      */
-    public function listPhotos(int $start_unix_timestamp, int $end_unix_timestamp, $order_by, int $limit, array $photo_collection_filter_uuid_list = null): array;
+    public function listPhotos(array $photo_filter, PhotoSorting $photo_sorting, int $limit): array;
 
     public function getPhoto(string $photo_uuid): Photo;
 
     /**
+     * @deprecated Use listPhotos with PhotoUuidFilter instead
+     *
      * @param array $photo_uuid_list
      *
      * @return Photo[]
