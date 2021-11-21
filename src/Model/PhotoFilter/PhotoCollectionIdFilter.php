@@ -2,7 +2,7 @@
 
 namespace PhotoCentralStorage\Model\PhotoFilter;
 
-class PhotoCollectionUuidFilter implements PhotoFilter
+class PhotoCollectionIdFilter implements PhotoFilter
 {
     private array $photo_collection_id_list;
 
