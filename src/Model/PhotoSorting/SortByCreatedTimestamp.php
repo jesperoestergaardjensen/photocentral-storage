@@ -1,6 +1,6 @@
 <?php
 
-namespace PhotoCentralStorage\Model\Sorting;
+namespace PhotoCentralStorage\Model\PhotoSorting;
 
 class SortByCreatedTimestamp extends BasicSorting implements PhotoSorting
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhotoCentralStorage;
+namespace PhotoCentralStorage\Model\PhotoFilter;
 
 interface PhotoFilter
 {

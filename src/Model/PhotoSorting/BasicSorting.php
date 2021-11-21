@@ -1,6 +1,6 @@
 <?php
 
-namespace PhotoCentralStorage\Model\Sorting;
+namespace PhotoCentralStorage\Model\PhotoSorting;
 
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 
