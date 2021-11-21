@@ -15,7 +15,7 @@ class BasicSorting implements PhotoSorting
      */
     public function __construct(string $direction)
     {
-        if ($direction !== self::ASC && $http_response_header !== self::DESC) {
+        if ($direction !== self::ASC && $direction !== self::DESC) {
             throw new PhotoCentralStorageException("Invalid sorting direction provided: $direction - only 'asc' and 'desc' are allowed values");
         }
         $this->direction = $direction;
