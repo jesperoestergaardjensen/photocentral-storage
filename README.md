@@ -1,2 +1,2 @@
 # photocentral-storage
-Repository that define photo storage(s) for PhotoCentral Main
+Repository that define Photocentral storage(s) for PhotoCentral Main

@@ -6,7 +6,7 @@ use PhotoCentralStorage\Model\ImageDimensions;
 use PhotoCentralStorage\Model\PhotoFilter\PhotoFilter;
 use PhotoCentralStorage\Model\PhotoSorting\PhotoSorting;
 
-interface PhotoStorage
+interface PhotoCentralStorage
 {
     /**
      * @param string $search_string
