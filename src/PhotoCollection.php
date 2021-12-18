@@ -10,11 +10,14 @@ class PhotoCollection
 
     private ?string $description;
 
-    public function __construct(string $id, string $name, ?string $description)
+    private bool $enabled;
+
+    public function __construct(string $id, string $name, ?string $description, bool $enabled)
     {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
+        $this->enabled = $enabled;
     }
 
     /**
@@ -39,5 +42,13 @@ class PhotoCollection
     public function getDescription(): ?string
     {
         return $this->description;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
     }
 }

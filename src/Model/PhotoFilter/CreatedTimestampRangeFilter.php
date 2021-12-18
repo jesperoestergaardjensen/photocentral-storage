@@ -2,7 +2,6 @@
 
 namespace PhotoCentralStorage\Model\PhotoFilter;
 
-// TODO : This should probably be renamed to CreatedTimestampRangeFilter and a AddedTimestampRangeFilter should be added
 class CreatedTimestampRangeFilter implements PhotoFilter
 {
     private int $start_timestamp;
