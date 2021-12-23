@@ -3,57 +3,66 @@
 namespace PhotoCentralStorage;
 
 use JsonSerializable;
+use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 
 final class Photo implements JsonSerializable
 {
     private const PHOTO_UUID            = 'photo_uuid';
+    private const PHOTO_COLLECTION_ID   = 'photo_collection_id';
     private const WIDTH                 = 'width';
     private const HEIGHT                = 'height';
     private const ORIENTATION           = 'orientation';
+    private const PHOTO_ADDED_DATE_TIME = 'photo_added_date_time';
     private const EXIF_DATE_TIME        = 'exif_date_time';
     private const FILE_SYSTEM_DATE_TIME = 'file_system_date_time';
     private const OVERRIDE_DATE_TIME    = 'override_date_time';
+    private const PHOTO_DATE_TIME       = 'photo_date_time';
     private const CAMERA_BRAND          = 'camera_brand';
     private const CAMERA_MODEL          = 'camera_model';
-    private const PHOTO_ADDED_DATE_TIME = 'row_added_date_time';
-    private const STORAGE_TYPE          = 'storage_type';
-    private const PHOTO_SOURCE_UUID     = 'photo_source_uuid';
 
     private string $photo_uuid;
+    private string $photo_collection_id;
     private int $width;
     private int $height;
     private int $orientation;
-    private string $photo_collection_uuid;
-
     private int $photo_added_date_time;
-    private int $fallback_date_time;
-
     private ?int $exif_date_time;
+    private ?int $file_system_date_time;
+    private ?int $override_date_time;
+    private int $photo_date_time;
     private ?string $camera_brand;
     private ?string $camera_model;
 
     public function __construct(
         string $photo_uuid,
-        string $photo_collection_uuid,
+        string $photo_collection_id,
         int $width,
         int $height,
         int $orientation,
         int $photo_added_date_time,
-        int $fallback_date_time,
-        ?string $camera_model,
+        ?int $exif_date_time,
+        ?int $file_system_date_time,
+        ?int $override_date_time,
         ?string $camera_brand,
-        ?int $exif_date_time
+        ?string $camera_model
     ) {
         $this->photo_uuid = $photo_uuid;
-        $this->photo_collection_uuid = $photo_collection_uuid;
+        $this->photo_collection_id = $photo_collection_id;
         $this->width = $width;
         $this->height = $height;
         $this->orientation = $orientation;
         $this->photo_added_date_time = $photo_added_date_time;
-        $this->fallback_date_time = $fallback_date_time;
-        $this->camera_model = $camera_model;
-        $this->camera_brand = $camera_brand;
         $this->exif_date_time = $exif_date_time;
+        $this->file_system_date_time = $file_system_date_time;
+        $this->override_date_time = $override_date_time;
+        $this->camera_brand = $camera_brand;
+        $this->camera_model = $camera_model;
+
+        if ($exif_date_time === null && $file_system_date_time === null && $override_date_time === null) {
+            throw new PhotoCentralStorageException('Photo object creation need at least one of exif_data_time/file_system_date_time/override_date_time to be set to a value');
+        } else {
+            $this->photo_date_time = $this->override_date_time ?? $this->exif_date_time ?? $this->file_system_date_time;
+        }
     }
 
     public function getPhotoUuid(): string
@@ -78,7 +87,7 @@ final class Photo implements JsonSerializable
 
     public function getPhotoCollectionUuid(): string
     {
-        return $this->photo_collection_uuid;
+        return $this->photo_collection_id;
     }
 
     public function getPhotoAddedDateTime(): int
@@ -88,7 +97,7 @@ final class Photo implements JsonSerializable
 
     public function getFallbackDateTime(): int
     {
-        return $this->fallback_date_time;
+        return $this->override_date_time;
     }
 
     public function getExifDateTime(): ?int
@@ -118,14 +127,54 @@ final class Photo implements JsonSerializable
             self::WIDTH                 => $this->width,
             self::HEIGHT                => $this->height,
             self::ORIENTATION           => $this->orientation,
-            self::STORAGE_TYPE          => SimpleLinuxStorage::class,
-            self::PHOTO_SOURCE_UUID     => SimpleLinuxStorage::PHOTO_COLLECTION_UUID,
-            self::PHOTO_ADDED_DATE_TIME   => $this->photo_added_date_time,
+            self::PHOTO_COLLECTION_ID   => $this->photo_collection_id,
+            self::PHOTO_ADDED_DATE_TIME => $this->photo_added_date_time,
+            self::EXIF_DATE_TIME        => $this->exif_date_time,
+            self::FILE_SYSTEM_DATE_TIME => $this->file_system_date_time,
+            self::OVERRIDE_DATE_TIME    => $this->override_date_time,
+            self::PHOTO_DATE_TIME       => $this->photo_date_time,
             self::CAMERA_BRAND          => $this->camera_brand,
             self::CAMERA_MODEL          => $this->camera_model,
-            self::EXIF_DATE_TIME        => $this->exif_date_time,
-            self::FILE_SYSTEM_DATE_TIME => $this->fallback_date_time,
-            self::OVERRIDE_DATE_TIME    => null,
         ];
+    }
+
+    public static function fromArray($array): self
+    {
+        $self = new self(
+            $array[self::PHOTO_UUID],
+            $array[self::PHOTO_COLLECTION_ID],
+            $array[self::WIDTH],
+            $array[self::HEIGHT],
+            $array[self::ORIENTATION],
+            $array[self::PHOTO_ADDED_DATE_TIME],
+            $array[self::EXIF_DATE_TIME],
+            $array[self::FILE_SYSTEM_DATE_TIME],
+            $array[self::OVERRIDE_DATE_TIME],
+            $array[self::CAMERA_BRAND],
+            $array[self::CAMERA_MODEL],
+        );
+
+        return $self;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPhotoDateTime(): int
+    {
+        return $this->photo_date_time;
+    }
+
+    /**
+     * @param int|null $override_date_time
+     */
+    public function setOverrideDateTime(?int $override_date_time): void
+    {
+        if ($this->exif_date_time === null && $this->file_system_date_time === null && $override_date_time === null) {
+            throw new PhotoCentralStorageException('At least one of exif_data_time/file_system_date_time/override_date_time has to be set to a value');
+        } else {
+            $this->override_date_time = $override_date_time;
+            $this->photo_date_time = $this->override_date_time ?? $this->exif_date_time ?? $this->file_system_date_time;
+        }
     }
 }
