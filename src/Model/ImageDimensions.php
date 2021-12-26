@@ -7,23 +7,23 @@ class ImageDimensions
     // EXAMPLE DIMENSIONS
 
     // thumb
-    const THUMB_ID = 'thumb';
-    const THUMB_WIDTH = 200;
+    const THUMB_ID     = 'thumb';
+    const THUMB_WIDTH  = 200;
     const THUMB_HEIGHT = 150;
 
     // sd
-    const SD_ID = 'sd';
-    const SD_WIDTH = 720;
+    const SD_ID     = 'sd';
+    const SD_WIDTH  = 720;
     const SD_HEIGHT = 534;
 
     // hd
-    const HD_ID = 'hd';
-    const HD_WIDTH = 1280;
+    const HD_ID     = 'hd';
+    const HD_WIDTH  = 1280;
     const HD_HEIGHT = 720;
 
     // fhd
-    const FHD_ID = 'fhd';
-    const FHD_WIDTH = 1920;
+    const FHD_ID     = 'fhd';
+    const FHD_WIDTH  = 1920;
     const FHD_HEIGHT = 1080;
 
     private string $id;
@@ -64,7 +64,7 @@ class ImageDimensions
     /**
      * @return ImageDimensions
      */
-    public static function createThumb() : self
+    public static function createThumb(): self
     {
         return new self(self::THUMB_ID, self::THUMB_WIDTH, self::THUMB_HEIGHT);
     }
@@ -72,7 +72,7 @@ class ImageDimensions
     /**
      * @return ImageDimensions
      */
-    public static function createSd() : self
+    public static function createSd(): self
     {
         return new self(self::SD_ID, self::SD_WIDTH, self::SD_HEIGHT);
     }
@@ -80,22 +80,22 @@ class ImageDimensions
     /**
      * @return ImageDimensions
      */
-    public static function createFhd() : self
+    public static function createFhd(): self
     {
         return new self(self::FHD_ID, self::FHD_WIDTH, self::FHD_HEIGHT);
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         return [
-            'id' => $this->id,
-            'width' => $this->width,
-            'height' => $this->height
+            'id'     => $this->id,
+            'width'  => $this->width,
+            'height' => $this->height,
         ];
     }
 
-    public static function fromArray($array)
+    public static function fromArray($array): self
     {
-        return new self($array['id'], $array['width'],$array['height']);
+        return new self($array['id'], $array['width'], $array['height']);
     }
 }
