@@ -6,6 +6,8 @@ use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 
 class BasicSorting implements PhotoSorting
 {
+    const ARRAY_KEY_DIRECTION = 'direction';
+
     public const ASC = 'asc';
     public const DESC = 'desc';
     private string $direction;
@@ -27,5 +29,17 @@ class BasicSorting implements PhotoSorting
     public function getDirection(): string
     {
         return $this->direction;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            self::ARRAY_KEY_DIRECTION => $this->direction
+        ];
+    }
+
+    public static function fromArray($array, $return_class_override = self::class): PhotoSorting
+    {
+        return new $return_class_override($array[self::ARRAY_KEY_DIRECTION]);
     }
 }
