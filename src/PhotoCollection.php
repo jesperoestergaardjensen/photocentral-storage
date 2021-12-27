@@ -68,7 +68,7 @@ class PhotoCollection
         ];
     }
 
-    public static function fromArray($array): self
+    public static function fromArray(array $array): self
     {
         return new self(
             $array[self::ARRAY_KEY_ID],
