@@ -14,9 +14,9 @@ class PhotoCollection
     private string $name;
     private ?string $description;
     private bool $enabled;
-    private ?int $last_updated = null;
+    private ?int $last_updated;
 
-    public function __construct(string $id, string $name, ?string $description, bool $enabled, int $last_updated)
+    public function __construct(string $id, string $name, bool $enabled, ?string $description, ?int $last_updated)
     {
         $this->id = $id;
         $this->name = $name;
@@ -73,8 +73,8 @@ class PhotoCollection
         return new self(
             $array[self::ARRAY_KEY_ID],
             $array[self::ARRAY_KEY_NAME],
-            $array[self::ARRAY_KEY_DESCRIPTION],
             $array[self::ARRAY_KEY_ENABLED],
+            $array[self::ARRAY_KEY_DESCRIPTION],
             $array[self::ARRAY_KEY_LAST_UPDATED],
         );
     }
