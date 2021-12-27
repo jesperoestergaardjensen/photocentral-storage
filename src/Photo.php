@@ -85,7 +85,7 @@ final class Photo implements JsonSerializable
         return $this->orientation;
     }
 
-    public function getPhotoCollectionUuid(): string
+    public function getPhotoCollectionId(): string
     {
         return $this->photo_collection_id;
     }
@@ -176,5 +176,21 @@ final class Photo implements JsonSerializable
             $this->override_date_time = $override_date_time;
             $this->photo_date_time = $this->override_date_time ?? $this->exif_date_time ?? $this->file_system_date_time;
         }
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getFileSystemDateTime(): ?int
+    {
+        return $this->file_system_date_time;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getOverrideDateTime(): ?int
+    {
+        return $this->override_date_time;
     }
 }
