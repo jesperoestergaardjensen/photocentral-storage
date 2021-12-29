@@ -2,29 +2,25 @@
 
 namespace PhotoCentralStorage\Model;
 
+use PhotoCentralStorage\Exception\PhotoCentralStorageException;
+
 class ImageDimensions
 {
-    // EXAMPLE DIMENSIONS
-
     // thumb
-    const THUMB_ID     = 'thumb';
-    const THUMB_WIDTH  = 200;
-    const THUMB_HEIGHT = 150;
-
+    const THUMB_ID = 'thumb';
     // sd
-    const SD_ID     = 'sd';
-    const SD_WIDTH  = 720;
-    const SD_HEIGHT = 534;
-
+    const SD_ID = 'sd';
     // hd
-    const HD_ID     = 'hd';
-    const HD_WIDTH  = 1280;
-    const HD_HEIGHT = 720;
-
+    const HD_ID = 'hd';
     // fhd
-    const FHD_ID     = 'fhd';
-    const FHD_WIDTH  = 1920;
-    const FHD_HEIGHT = 1080;
+    const FHD_ID = 'fhd';
+
+    private const VALID_ID_LIST = [
+        self::THUMB_ID => ['id' => self::THUMB_ID, 'width' => 200, 'height' => 150],
+        self::SD_ID    => ['id' => self::SD_ID, 'width' => 720, 'height' => 534],
+        self::HD_ID    => ['id' => self::HD_ID, 'width' => 1280, 'height' => 720],
+        self::FHD_ID   => ['id' => self::FHD_ID, 'width' => 1920, 'height' => 1080],
+    ];
 
     private string $id;
     private int $width;
@@ -66,7 +62,7 @@ class ImageDimensions
      */
     public static function createThumb(): self
     {
-        return new self(self::THUMB_ID, self::THUMB_WIDTH, self::THUMB_HEIGHT);
+        return self::createFromId(self::THUMB_ID);
     }
 
     /**
@@ -74,7 +70,7 @@ class ImageDimensions
      */
     public static function createSd(): self
     {
-        return new self(self::SD_ID, self::SD_WIDTH, self::SD_HEIGHT);
+        return self::createFromId(self::SD_ID);
     }
 
     /**
@@ -82,7 +78,7 @@ class ImageDimensions
      */
     public static function createFhd(): self
     {
-        return new self(self::FHD_ID, self::FHD_WIDTH, self::FHD_HEIGHT);
+        return self::createFromId(self::FHD_ID);
     }
 
     public function toArray(): array
@@ -97,5 +93,18 @@ class ImageDimensions
     public static function fromArray($array): self
     {
         return new self($array['id'], $array['width'], $array['height']);
+    }
+
+    /**
+     * @throws PhotoCentralStorageException
+     */
+    public static function createFromId(string $id): self
+    {
+        if (! array_key_exists($id, self::VALID_ID_LIST)) {
+            throw new PhotoCentralStorageException("ImageDimesions id {$id} is not valid");
+        }
+
+        return new self(self::VALID_ID_LIST[$id]['id'], self::VALID_ID_LIST[$id]['width'],
+            self::VALID_ID_LIST[$id]['height']);
     }
 }
