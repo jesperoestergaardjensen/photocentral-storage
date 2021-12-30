@@ -7,8 +7,8 @@ use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 
 final class Photo implements JsonSerializable
 {
-    private const PHOTO_UUID            = 'photo_uuid';
-    private const PHOTO_COLLECTION_ID   = 'photo_collection_id';
+    public const  PHOTO_UUID            = 'photo_uuid';
+    public const  PHOTO_COLLECTION_ID   = 'photo_collection_id';
     private const WIDTH                 = 'width';
     private const HEIGHT                = 'height';
     private const ORIENTATION           = 'orientation';
@@ -19,6 +19,7 @@ final class Photo implements JsonSerializable
     private const PHOTO_DATE_TIME       = 'photo_date_time';
     private const CAMERA_BRAND          = 'camera_brand';
     private const CAMERA_MODEL          = 'camera_model';
+    public const  PHOTO_URL             = 'photo_url';
 
     private string $photo_uuid;
     private string $photo_collection_id;
@@ -32,6 +33,7 @@ final class Photo implements JsonSerializable
     private int $photo_date_time;
     private ?string $camera_brand;
     private ?string $camera_model;
+    private string $photo_url;
 
     public function __construct(
         string $photo_uuid,
@@ -115,6 +117,16 @@ final class Photo implements JsonSerializable
         return $this->camera_model;
     }
 
+    public function getPhotoUrl(): string
+    {
+        return $this->photo_url;
+    }
+
+    public function setPhotoUrl(string $photo_url): void
+    {
+        $this->photo_url = $photo_url;
+    }
+
     public function jsonSerialize()
     {
         return $this->toArray();
@@ -135,6 +147,7 @@ final class Photo implements JsonSerializable
             self::PHOTO_DATE_TIME       => $this->photo_date_time,
             self::CAMERA_BRAND          => $this->camera_brand,
             self::CAMERA_MODEL          => $this->camera_model,
+            self::PHOTO_URL             => $this->photo_url ?? 'N/A',
         ];
     }
 
@@ -151,8 +164,10 @@ final class Photo implements JsonSerializable
             $array[self::FILE_SYSTEM_DATE_TIME],
             $array[self::OVERRIDE_DATE_TIME],
             $array[self::CAMERA_BRAND],
-            $array[self::CAMERA_MODEL],
+            $array[self::CAMERA_MODEL]
         );
+
+        $self->setPhotoUrl($array[self::PHOTO_URL]);
 
         return $self;
     }
