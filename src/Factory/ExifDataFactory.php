@@ -2,6 +2,7 @@
 
 namespace PhotoCentralStorage\Factory;
 
+use PhotoCentralStorage\Exception\ExifFactoryException;
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\ExifData;
 
@@ -11,17 +12,19 @@ class ExifDataFactory
      * @param string $full_image_file_name_and_path
      *
      * @return ExifData
+     * @throws ExifFactoryException
      * @throws PhotoCentralStorageException
      */
-    public static function createExifData(string $full_image_file_name_and_path) : ExifData {
-
+    public static function createExifData(string $full_image_file_name_and_path): ExifData
+    {
         self::ThrowExceptionIfValidationFails($full_image_file_name_and_path);
 
         // Get a lot of photo information
         @$exif = exif_read_data($full_image_file_name_and_path);
 
         if ($exif === false) {
-            throw new PhotoCentralStorageException("Cannot read exif data from file: $full_image_file_name_and_path");
+            throw new ExifFactoryException("Cannot read exif data from file: $full_image_file_name_and_path",
+                ExifFactoryException::CANNOT_READ_EXIF_DATA_FROM_FILE);
         }
 
         // Not all photos seem to have the Orientation info ?!?! - Handle this
@@ -55,11 +58,11 @@ class ExifDataFactory
         );
     }
 
-    private static function createDatePhotoTaken(array $exif): string
+    private static function createDatePhotoTaken(array $exif): ?string
     {
-        if (!isset($exif['DateTimeOriginal']) || $exif['DateTimeOriginal'] == null) {
-            if (!isset($exif['DateTimeDigitized']) || $exif['DateTimeDigitized'] == null) {
-                if (!isset($exif['FileDateTime']) || $exif['FileDateTime'] == null || $exif['FileDateTime'] < 0) {
+        if (! isset($exif['DateTimeOriginal']) || $exif['DateTimeOriginal'] == null) {
+            if (! isset($exif['DateTimeDigitized']) || $exif['DateTimeDigitized'] == null) {
+                if (! isset($exif['FileDateTime']) || $exif['FileDateTime'] == null || $exif['FileDateTime'] < 0) {
                     $datePhotoTaken = null;
                 } else {
                     $datePhotoTaken = date("Y:m:d H:i:s", $exif['FileDateTime']);
@@ -76,28 +79,27 @@ class ExifDataFactory
 
     private static function ThrowExceptionIfValidationFails(string $full_image_file_name_and_path): void
     {
-        if (is_file($full_image_file_name_and_path) === false) {
-            throw new PhotoCentralStorageException("$full_image_file_name_and_path is not a valid file");
+        if (! file_exists($full_image_file_name_and_path)) {
+            throw new ExifFactoryException($full_image_file_name_and_path . " - is not a valid path", ExifFactoryException::NOT_VALID_FILE_OR_PATH);
+        } else {
+            if (! is_file($full_image_file_name_and_path)) {
+                throw new ExifFactoryException($full_image_file_name_and_path . " - is not a valid file!", ExifFactoryException::NOT_VALID_FILE);
+            }
         }
 
         // By trial and error, it seems that a file has to be 12 bytes or larger in order to avoid a "Read error!".  Here's a work-around to avoid an error being thrown:
         // exif_imagetype throws "Read error!" if file is too small
         if (filesize($full_image_file_name_and_path) < 12) {
-            throw new PhotoCentralStorageException("$full_image_file_name_and_path is not a valid image");
+            throw new ExifFactoryException("$full_image_file_name_and_path is not a valid image", ExifFactoryException::NOT_VALID_IMAGE_SIZE);
         }
 
         if (exif_imagetype($full_image_file_name_and_path) === false) {
-            throw new PhotoCentralStorageException("$full_image_file_name_and_path is not a valid image");
-        }
-
-        if (!is_file($full_image_file_name_and_path)) {
-            throw new PhotoCentralStorageException($full_image_file_name_and_path . " - is not a valid file!");
-        } else if (!file_exists($full_image_file_name_and_path)) {
-            throw new PhotoCentralStorageException($full_image_file_name_and_path . " - is not a valid path");
+            throw new ExifFactoryException("$full_image_file_name_and_path is not a valid image", ExifFactoryException::NOT_VALID_IMAGE_TYPE);
         }
     }
 
-    private static function getGps($coordinate, $hemisphere): float {
+    private static function getGps($coordinate, $hemisphere): float
+    {
         if (is_string($coordinate)) {
             $coordinate = array_map("trim", explode(",", $coordinate));
         }
@@ -105,14 +107,17 @@ class ExifDataFactory
             $part = explode('/', $coordinate[$i]);
             if (count($part) == 1) {
                 $coordinate[$i] = $part[0];
-            } else if (count($part) == 2) {
-                $coordinate[$i] = floatval($part[0])/floatval($part[1]);
             } else {
-                $coordinate[$i] = 0;
+                if (count($part) == 2) {
+                    $coordinate[$i] = floatval($part[0]) / floatval($part[1]);
+                } else {
+                    $coordinate[$i] = 0;
+                }
             }
         }
         [$degrees, $minutes, $seconds] = $coordinate;
         $sign = ($hemisphere == 'W' || $hemisphere == 'S') ? -1 : 1;
-        return $sign * ($degrees + $minutes/60 + $seconds/3600);
+
+        return $sign * ($degrees + $minutes / 60 + $seconds / 3600);
     }
 }

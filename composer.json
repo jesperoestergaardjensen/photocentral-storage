@@ -18,7 +18,8 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "jesperoestergaardjensen/exif-samples": "1.0.0"
     },
     "scripts": {
         "test": "phpunit"

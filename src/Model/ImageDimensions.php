@@ -57,30 +57,6 @@ class ImageDimensions
         return $this->id;
     }
 
-    /**
-     * @return ImageDimensions
-     */
-    public static function createThumb(): self
-    {
-        return self::createFromId(self::THUMB_ID);
-    }
-
-    /**
-     * @return ImageDimensions
-     */
-    public static function createSd(): self
-    {
-        return self::createFromId(self::SD_ID);
-    }
-
-    /**
-     * @return ImageDimensions
-     */
-    public static function createFhd(): self
-    {
-        return self::createFromId(self::FHD_ID);
-    }
-
     public function toArray(): array
     {
         return [
