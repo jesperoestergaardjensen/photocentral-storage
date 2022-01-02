@@ -33,7 +33,7 @@ final class Photo implements JsonSerializable
     private int $photo_date_time;
     private ?string $camera_brand;
     private ?string $camera_model;
-    private string $photo_url;
+    private string $photo_url = 'N/A';
 
     public function __construct(
         string $photo_uuid,
@@ -95,11 +95,6 @@ final class Photo implements JsonSerializable
     public function getPhotoAddedDateTime(): int
     {
         return $this->photo_added_date_time;
-    }
-
-    public function getFallbackDateTime(): int
-    {
-        return $this->override_date_time;
     }
 
     public function getExifDateTime(): ?int
