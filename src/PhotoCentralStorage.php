@@ -48,4 +48,8 @@ interface PhotoCentralStorage
         string $photo_collection_id,
         ImageDimensions $image_dimensions
     ): string;
+
+    public function setPhotoCachePath(string $photo_cache_path): void;
+
+    public function getPhotoCachePath(): string;
 }
