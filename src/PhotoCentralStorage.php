@@ -43,13 +43,19 @@ interface PhotoCentralStorage
      */
     public function listPhotoCollections(int $limit): array;
 
-    public function getPhotoPath(
+    public function getPathOrUrlToPhoto(
         string $photo_uuid,
-        string $photo_collection_id,
-        ImageDimensions $image_dimensions
+        ImageDimensions $image_dimensions,
+        ?string $photo_collection_id
     ): string;
 
-    public function setPhotoCachePath(string $photo_cache_path): void;
+    public function getPathOrUrlToCachedPhoto(
+        string $photo_uuid,
+        ImageDimensions $image_dimensions,
+        ?string $photo_collection_id
+    ): string;
 
-    public function getPhotoCachePath(): string;
+    public function setPhotoCache(string $photo_cache_path): void;
+
+    public function getPhotoCache(): string;
 }

@@ -112,11 +112,17 @@ final class Photo implements JsonSerializable
         return $this->camera_model;
     }
 
+    /**
+     * @deprecated
+     */
     public function getPhotoUrl(): string
     {
         return $this->photo_url;
     }
 
+    /**
+     * @deprecated
+     */
     public function setPhotoUrl(string $photo_url): void
     {
         $this->photo_url = $photo_url;
