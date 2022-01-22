@@ -55,7 +55,7 @@ interface PhotoCentralStorage
         ?string $photo_collection_id
     ): string;
 
-    public function setPhotoCache(string $photo_cache_path): void;
+    public function setPhotoCache(?string $photo_cache_path): void;
 
-    public function getPhotoCache(): string;
+    public function getPhotoCache(): ?string;
 }
