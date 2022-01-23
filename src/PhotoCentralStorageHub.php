@@ -38,6 +38,8 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
                 $this->photo_collection_to_storage_map[$photo_collection->getId()] = $index;
             }
         }
+
+        $this->initialized = true;
     }
 
     public function searchPhotos(string $search_string, ?array $photo_collection_id_list, int $limit = 10): array
