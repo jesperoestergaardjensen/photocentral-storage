@@ -4,7 +4,7 @@ namespace PhotoCentralStorage\Model\PhotoSorting;
 
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 
-class BasicSorting implements PhotoSorting
+abstract class BasicSorting implements PhotoSorting
 {
     const ARRAY_KEY_DIRECTION = 'direction';
 

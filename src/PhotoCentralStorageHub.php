@@ -4,6 +4,10 @@ namespace PhotoCentralStorage;
 
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\ImageDimensions;
+use PhotoCentralStorage\Model\PhotoFilter\PhotoFilter;
+use PhotoCentralStorage\Model\PhotoSorting\BasicSorting;
+use PhotoCentralStorage\Model\PhotoSorting\PhotoSorting;
+use PhotoCentralStorage\Model\PhotoSorting\SortByPhotoDateTime;
 
 /**
  * Use this class if you want to combine multiple photo central storage types - the hub will act as one combined photo central storage
@@ -48,7 +52,8 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
 
         $merged_search_result_list = [];
         foreach ($this->photo_central_storage_list as $photo_central_storage) {
-            $search_result_list = $photo_central_storage->searchPhotos($search_string, $photo_collection_id_list, $limit);
+            $search_result_list = $photo_central_storage->searchPhotos($search_string, $photo_collection_id_list,
+                $limit);
             $merged_search_result_list = array_merge($merged_search_result_list, $search_result_list);
         }
 
@@ -61,6 +66,35 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         int $limit = 5
     ): array {
         $this->throwExceptionIfNotInitialized();
+
+        $merged_photo_list = [];
+
+        foreach ($this->photo_central_storage_list as $photo_central_storage) {
+            $photo_collection_list = $photo_central_storage->listPhotos($photo_filters, $photo_sorting_parameters,
+                $limit);
+            $merged_photo_list = array_merge($merged_photo_list, $photo_collection_list);
+        }
+
+        if ($photo_sorting_parameters) {
+            $merged_photo_list = $this->sortPhotoList($photo_sorting_parameters, $merged_photo_list);
+        }
+
+        return $merged_photo_list;
+    }
+
+    /**
+     * @param ?PhotoSorting[] $photo_sorting_parameters
+     * @param Photo[]         $photo_list
+     *
+     * @return array
+     */
+    private function sortPhotoList(?array $photo_sorting_parameters, array $photo_list): array
+    {
+        foreach ($photo_sorting_parameters as $photo_sorting_parameter) {
+            $photo_list = $photo_sorting_parameter->sort($photo_list);
+        }
+
+        return $photo_list;
     }
 
     public function getPhoto(string $photo_uuid, string $photo_collection_id): Photo
@@ -68,6 +102,7 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         $this->throwExceptionIfNotInitialized();
 
         $index = $this->photo_collection_to_storage_map[$photo_collection_id];
+
         return $this->photo_central_storage_list[$index]->getPhoto($photo_uuid, $photo_collection_id);
     }
 
@@ -119,7 +154,9 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         $this->throwExceptionIfNotInitialized();
 
         $index = $this->photo_collection_to_storage_map[$photo_collection_id];
-        return $this->photo_central_storage_list[$index]->getPathOrUrlToPhoto($photo_uuid, $image_dimensions, $photo_collection_id);
+
+        return $this->photo_central_storage_list[$index]->getPathOrUrlToPhoto($photo_uuid, $image_dimensions,
+            $photo_collection_id);
     }
 
     public function getPathOrUrlToCachedPhoto(
@@ -130,7 +167,9 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         $this->throwExceptionIfNotInitialized();
 
         $index = $this->photo_collection_to_storage_map[$photo_collection_id];
-        return $this->photo_central_storage_list[$index]->getPathOrUrlToCachedPhoto($photo_uuid, $image_dimensions, $photo_collection_id);
+
+        return $this->photo_central_storage_list[$index]->getPathOrUrlToCachedPhoto($photo_uuid, $image_dimensions,
+            $photo_collection_id);
     }
 
     public function setPhotoCache(?string $photo_cache_path): void
@@ -143,6 +182,9 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         return $this->photo_cache;
     }
 
+    /**
+     * @throws PhotoCentralStorageException
+     */
     private function throwExceptionIfNotInitialized(): void
     {
         if ($this->initialized === false) {

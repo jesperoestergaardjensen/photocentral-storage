@@ -18,9 +18,9 @@ interface PhotoCentralStorage
     public function searchPhotos(string $search_string, ?array $photo_collection_id_list, int $limit = 10): array;
 
     /**
-     * @param PhotoFilter[]|null  $photo_filters
-     * @param PhotoSorting[]|null $photo_sorting_parameters
-     * @param int                 $limit
+     * @param ?PhotoFilter[]  $photo_filters
+     * @param ?PhotoSorting[] $photo_sorting_parameters
+     * @param int             $limit
      *
      * @return Photo[]
      */
