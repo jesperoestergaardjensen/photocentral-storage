@@ -5,6 +5,9 @@ namespace PhotoCentralStorage;
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\ImageDimensions;
 use PhotoCentralStorage\Model\PhotoFilter\PhotoFilter;
+use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityDay;
+use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityMonth;
+use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityYear;
 use PhotoCentralStorage\Model\PhotoSorting\BasicSorting;
 use PhotoCentralStorage\Model\PhotoSorting\PhotoSorting;
 use PhotoCentralStorage\Model\PhotoSorting\SortByPhotoDateTime;
@@ -190,5 +193,20 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         if ($this->initialized === false) {
             throw new PhotoCentralStorageException('Please call the initialize() method before usage of the PhotoCentralStorageHub class');
         }
+    }
+
+    public function listPhotoQuantityByYear(?array $photo_collection_id_list): array
+    {
+        return [];
+    }
+
+    public function listPhotoQuantityByMonth(int $year, ?array $photo_collection_id_list): array
+    {
+        return [];
+    }
+
+    public function listPhotoQuantityByDay(int $month, int $year, ?array $photo_collection_id_list): array
+    {
+        return [];
     }
 }
