@@ -209,4 +209,9 @@ final class Photo implements JsonSerializable
     {
         return $this->override_date_time;
     }
+
+    public function setOrientation(int $orientation): void
+    {
+        $this->orientation = $orientation;
+    }
 }

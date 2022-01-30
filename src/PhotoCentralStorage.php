@@ -4,6 +4,9 @@ namespace PhotoCentralStorage;
 
 use PhotoCentralStorage\Model\ImageDimensions;
 use PhotoCentralStorage\Model\PhotoFilter\PhotoFilter;
+use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityDay;
+use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityMonth;
+use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityYear;
 use PhotoCentralStorage\Model\PhotoSorting\PhotoSorting;
 
 interface PhotoCentralStorage
@@ -58,4 +61,28 @@ interface PhotoCentralStorage
     public function setPhotoCache(?string $photo_cache_path): void;
 
     public function getPhotoCache(): ?string;
+
+    /**
+     * @param ?array $photo_collection_id_list
+     *
+     * @return PhotoQuantityYear[]
+     */
+    public function listPhotoQuantityByYear(?array $photo_collection_id_list): array;
+
+    /**
+     * @param int    $year
+     * @param ?array $photo_collection_id_list
+     *
+     * @return PhotoQuantityMonth[]
+     */
+    public function listPhotoQuantityByMonth(int $year, ?array $photo_collection_id_list): array;
+
+    /**
+     * @param int        $month
+     * @param int        $year
+     * @param ?array $photo_collection_id_list
+     *
+     * @return PhotoQuantityDay[]
+     */
+    public function listPhotoQuantityByDay(int $month, int $year, ?array $photo_collection_id_list): array;
 }
