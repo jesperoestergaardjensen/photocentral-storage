@@ -2,7 +2,7 @@
 
 namespace PhotoCentralStorage\Model\PhotoFilter;
 
-class PhotoDataTimeRangeFilter implements PhotoFilter
+class PhotoDateTimeRangeFilter implements PhotoFilter
 {
     public const ARRAY_KEY_START_TIME_STAMP = 'start_timestamp';
     public const ARRAY_KEY_END_TIME_STAMP = 'end_timestamp';
