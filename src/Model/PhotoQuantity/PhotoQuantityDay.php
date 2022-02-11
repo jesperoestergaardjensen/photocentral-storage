@@ -50,5 +50,13 @@ class PhotoQuantityDay implements JsonSerializable
     {
         return $this->toArray();
     }
-}
 
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity(int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+}

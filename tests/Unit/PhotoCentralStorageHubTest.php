@@ -32,7 +32,7 @@ class PhotoCentralStorageHubTest extends \PHPUnit\Framework\TestCase
     {
         $simple_linux_storage = new SimpleLinuxStorage($this->getPhotosTestFolder(),
             $this->getImageCacheTestFolder());
-        $this->storage_hub = new PhotoCentralStorageHub([$simple_linux_storage]);
+        $this->storage_hub = new PhotoCentralStorageHub([$simple_linux_storage, $simple_linux_storage]);
         $this->storage_hub->initialize();
     }
 
@@ -40,7 +40,7 @@ class PhotoCentralStorageHubTest extends \PHPUnit\Framework\TestCase
     {
         $photo_collection_list = $this->storage_hub->listPhotoCollections(2);
 
-        $this->assertCount(1, $photo_collection_list, 'One item in the list is expected');
+        $this->assertCount(2, $photo_collection_list, 'One item in the list is expected');
         $this->assertEquals(SimpleLinuxStorage::PHOTO_COLLECTION_UUID, $photo_collection_list[0]->getId(), 'id is expected to be ' . SimpleLinuxStorage::PHOTO_COLLECTION_UUID);
         $this->assertEquals('Photo folder', $photo_collection_list[0]->getName(),
             'name is expected to be "Photo folder"');
@@ -51,9 +51,9 @@ class PhotoCentralStorageHubTest extends \PHPUnit\Framework\TestCase
     public function testlistPhotoQuantityByYear()
     {
         $expected = [
-            new PhotoQuantityYear('2022',2022, 2),
-            new PhotoQuantityYear('2019',2019, 1),
-            new PhotoQuantityYear('2017',2017, 1),
+            new PhotoQuantityYear('2022',2022, 4),
+            new PhotoQuantityYear('2019',2019, 2),
+            new PhotoQuantityYear('2017',2017, 2),
         ];
 
         $actual = $this->storage_hub->listPhotoQuantityByYear([SimpleLinuxStorage::PHOTO_COLLECTION_UUID]);
@@ -63,7 +63,7 @@ class PhotoCentralStorageHubTest extends \PHPUnit\Framework\TestCase
     public function testlistPhotoQuantityByMonth()
     {
         $expected = [
-            new PhotoQuantityMonth('02',2, 2),
+            new PhotoQuantityMonth('02',2, 4),
         ];
 
         $actual = $this->storage_hub->listPhotoQuantityByMonth(2022, [SimpleLinuxStorage::PHOTO_COLLECTION_UUID]);
@@ -73,7 +73,7 @@ class PhotoCentralStorageHubTest extends \PHPUnit\Framework\TestCase
     public function testlistPhotoQuantityByDay()
     {
         $expected = [
-            new PhotoQuantityDay('11',11, 2),
+            new PhotoQuantityDay('11',11, 4),
         ];
 
         $actual = $this->storage_hub->listPhotoQuantityByDay(2, 2022, [SimpleLinuxStorage::PHOTO_COLLECTION_UUID]);
