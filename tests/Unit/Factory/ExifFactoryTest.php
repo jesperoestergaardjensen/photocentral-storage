@@ -80,8 +80,6 @@ class ExifFactoryTest extends TestCase
     public function testStrangeExifDate()
     {
         $test_file = dirname(__FILE__, 3) . '/data/date-issue.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }
@@ -89,8 +87,6 @@ class ExifFactoryTest extends TestCase
     public function testFaulthyFileExample1()
     {
         $test_file = dirname(__FILE__, 4) . '/vendor/jesperoestergaardjensen/exif-samples/jpg/invalid/image00971.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }
@@ -98,8 +94,6 @@ class ExifFactoryTest extends TestCase
     public function testFaulthyFileExample2()
     {
         $test_file = dirname(__FILE__, 4) . '/vendor/jesperoestergaardjensen/exif-samples/jpg/invalid/image01088.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }
@@ -107,8 +101,6 @@ class ExifFactoryTest extends TestCase
     public function testFaulthyFileExample3()
     {
         $test_file = dirname(__FILE__, 4) . '/vendor/jesperoestergaardjensen/exif-samples/jpg/invalid/image01137.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }
@@ -116,8 +108,6 @@ class ExifFactoryTest extends TestCase
     public function testFaulthyFileExample4()
     {
         $test_file = dirname(__FILE__, 4) . '/vendor/jesperoestergaardjensen/exif-samples/jpg/invalid/image01551.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }
@@ -125,8 +115,6 @@ class ExifFactoryTest extends TestCase
     public function testFaulthyFileExample5()
     {
         $test_file = dirname(__FILE__, 4) . '/vendor/jesperoestergaardjensen/exif-samples/jpg/invalid/image01713.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }
@@ -134,8 +122,6 @@ class ExifFactoryTest extends TestCase
     public function testFaulthyFileExample6()
     {
         $test_file = dirname(__FILE__, 4) . '/vendor/jesperoestergaardjensen/exif-samples/jpg/invalid/image01980.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }
@@ -143,8 +129,6 @@ class ExifFactoryTest extends TestCase
     public function testFaulthyFileExample7()
     {
         $test_file = dirname(__FILE__, 4) . '/vendor/jesperoestergaardjensen/exif-samples/jpg/invalid/image02206.jpg';
-/*        $this->expectException(ExifFactoryException::class);
-        $this->expectExceptionCode(ExifFactoryException::NOT_VALID_FILE);*/
         $exif_data = ExifDataFactory::createExifData($test_file);
         $this->assertInstanceOf(ExifData::class, $exif_data);
     }

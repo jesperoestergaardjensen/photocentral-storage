@@ -37,9 +37,4 @@ abstract class BasicSorting implements PhotoSorting
             self::ARRAY_KEY_DIRECTION => $this->direction
         ];
     }
-
-    public static function fromArray($array, $return_class_override = self::class): PhotoSorting
-    {
-        return new $return_class_override($array[self::ARRAY_KEY_DIRECTION]);
-    }
 }

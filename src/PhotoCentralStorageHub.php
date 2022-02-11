@@ -4,13 +4,10 @@ namespace PhotoCentralStorage;
 
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\ImageDimensions;
-use PhotoCentralStorage\Model\PhotoFilter\PhotoFilter;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityDay;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityMonth;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityYear;
-use PhotoCentralStorage\Model\PhotoSorting\BasicSorting;
 use PhotoCentralStorage\Model\PhotoSorting\PhotoSorting;
-use PhotoCentralStorage\Model\PhotoSorting\SortByPhotoDateTime;
 
 /**
  * Use this class if you want to combine multiple photo central storage types - the hub will act as one combined photo central storage
@@ -197,16 +194,40 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
 
     public function listPhotoQuantityByYear(?array $photo_collection_id_list): array
     {
-        return [];
+        $merged_year_quantity_list = [];
+
+        foreach ($this->photo_central_storage_list as $photo_central_storage) {
+            $year_quantity_list = $photo_central_storage->listPhotoQuantityByYear($photo_collection_id_list);
+            $merged_year_quantity_list = array_merge($merged_year_quantity_list, $year_quantity_list);
+        }
+
+        usort($merged_year_quantity_list, fn(PhotoQuantityYear $a, PhotoQuantityYear $b) => ($a->getYearValue()) < ($b->getYearValue()));
+        return $merged_year_quantity_list;
     }
 
     public function listPhotoQuantityByMonth(int $year, ?array $photo_collection_id_list): array
     {
-        return [];
+        $merged_month_quantity_list = [];
+
+        foreach ($this->photo_central_storage_list as $photo_central_storage) {
+            $month_quantity_list = $photo_central_storage->listPhotoQuantityByMonth($year, $photo_collection_id_list);
+            $merged_month_quantity_list = array_merge($merged_month_quantity_list, $month_quantity_list);
+        }
+
+        usort($merged_month_quantity_list, fn(PhotoQuantityMonth $a, PhotoQuantityMonth $b) => ($a->getMonthValue()) > ($b->getMonthValue()));
+        return $merged_month_quantity_list;
     }
 
     public function listPhotoQuantityByDay(int $month, int $year, ?array $photo_collection_id_list): array
     {
-        return [];
+        $merged_day_quantity_list = [];
+
+        foreach ($this->photo_central_storage_list as $photo_central_storage) {
+            $day_quantity_list = $photo_central_storage->listPhotoQuantityByDay($month, $year, $photo_collection_id_list);
+            $merged_day_quantity_list = array_merge($merged_day_quantity_list, $day_quantity_list);
+        }
+
+        usort($merged_day_quantity_list, fn(PhotoQuantityDay $a, PhotoQuantityDay $b) => ($a->getDayValue()) > ($b->getDayValue()));
+        return $merged_day_quantity_list;
     }
 }
