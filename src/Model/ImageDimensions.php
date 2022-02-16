@@ -4,6 +4,7 @@ namespace PhotoCentralStorage\Model;
 
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 
+// TODO : QA - rename to PhotoDimensions
 class ImageDimensions
 {
     // thumb

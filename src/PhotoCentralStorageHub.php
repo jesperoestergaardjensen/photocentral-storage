@@ -31,14 +31,20 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         $this->photo_central_storage_list = $photo_central_storage_list;
     }
 
+    /**
+     * @throws PhotoCentralStorageException
+     */
     public function initialize()
     {
         // TODO : Maybe initialize should handle that all have the same cache path?
-        // TODO : Throw exception if photo collections have the same id
         foreach ($this->photo_central_storage_list as $index => $photo_central_storage) {
             $photo_collection_list = $photo_central_storage->listPhotoCollections(1000);
 
             foreach ($photo_collection_list as $photo_collection) {
+                if (array_key_exists($photo_collection->getId(), $this->photo_collection_to_storage_map)) {
+                    throw new PhotoCentralStorageException('Duplicate photo collections id ' .$photo_collection->getId());
+                }
+
                 $this->photo_collection_to_storage_map[$photo_collection->getId()] = $index;
             }
         }
@@ -79,7 +85,7 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
             $merged_photo_list = $this->sortPhotoList($photo_sorting_parameters, $merged_photo_list);
         }
 
-        return $merged_photo_list;
+        return array_slice($merged_photo_list, 0, $limit);
     }
 
     /**
@@ -291,5 +297,4 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
         }
         return $merged_month_quantity_list;
     }
-
 }
