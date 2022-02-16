@@ -112,6 +112,7 @@ final class Photo implements JsonSerializable
         return $this->camera_model;
     }
 
+    // TODO : Check if this can be removed
     /**
      * @deprecated
      */
@@ -120,6 +121,7 @@ final class Photo implements JsonSerializable
         return $this->photo_url;
     }
 
+    // TODO : Check if this can be removed
     /**
      * @deprecated
      */

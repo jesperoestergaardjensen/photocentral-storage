@@ -10,6 +10,7 @@ class PhotoCollection
     public const ARRAY_KEY_ENABLED = 'enabled';
     public const ARRAY_KEY_LAST_UPDATED = 'last_updated';
 
+    // TODO : Decide id or uuid ?!?
     private string $id;
     private string $name;
     private ?string $description;

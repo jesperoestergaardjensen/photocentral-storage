@@ -158,4 +158,25 @@ class PhotoTest extends TestCase
         $this->expectException(PhotoCentralStorageException::class);
         $photo->setOverrideDateTime(null);
     }
+
+    public function testSetOrientation()
+    {
+        $photo = new Photo(
+            $this->photo_uuid,
+            $this->photo_collection_id,
+            $this->width,
+            $this->height,
+            $this->orientation,
+            $this->photo_added_date_time,
+            $this->exif_date_time,
+            $this->file_system_date_time,
+            $this->override_date_time,
+            $this->camera_brand,
+            $this->camera_model
+        );
+
+        $this->assertEquals($this->orientation, $photo->getOrientation());
+        $photo->setOrientation(2);
+        $this->assertEquals(2, $photo->getOrientation());
+    }
 }
