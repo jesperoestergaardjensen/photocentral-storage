@@ -2,6 +2,7 @@
 
 namespace PhotoCentralStorage;
 
+use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\ImageDimensions;
 use PhotoCentralStorage\Model\PhotoFilter\PhotoFilter;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityDay;
@@ -33,6 +34,9 @@ interface PhotoCentralStorage
         int $limit = 5
     ): array;
 
+    /**
+     * @throws PhotoCentralStorageException If photo uuid or photo collection id don't exist
+     */
     public function getPhoto(string $photo_uuid, string $photo_collection_id): Photo;
 
     public function softDeletePhoto(string $photo_uuid): bool;

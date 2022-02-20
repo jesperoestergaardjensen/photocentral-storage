@@ -7,36 +7,64 @@ use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityDay;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityMonth;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityYear;
+use PhotoCentralStorage\PhotoCentralStorage;
 use PhotoCentralStorage\PhotoCentralStorageHub;
+use PhotoCentralStorage\PhotoCollection;
 
-class PhotoCentralStorageHubTest extends \PHPUnit\Framework\TestCase
+class PhotoCentralStorageHubTest extends PhotoCentralStorageTestBase
 {
-    private PhotoCentralStorageHub $storage_hub;
-
-    private const DELETED_PHOTO_UUID_1 = 'e9be5e89fc397c680580599e1f3ef21e';
-    private const DELETED_PHOTO_UUID_2 = '8fae4586a47a2356df0ea12c997e047e';
-
-    private const TEST_PHOTO_FILE_NAME_1 = 'coffee-break.jpg';
-    private const TEST_PHOTO_FILE_NAME_2 = 'sport/mtb/mountain-bike-g30008f9d7_1280.jpg';
-
-    private function getPhotosTestFolder(): string
+    public function initializePhotoCentralStorage(): PhotoCentralStorage
     {
-        return dirname(__DIR__) . "/data/storage-hub/photos/";
+        $simple_linux_storage = new SimpleLinuxStorage($this->getPhotosTestFolder() . 'storage1/',
+            $this->getImageCacheTestFolder());
+        $simple_linux_storage_second = new SimpleLinuxStorage($this->getPhotosTestFolder() . 'storage2/',
+            $this->getImageCacheTestFolder(), '727a8cdc-2275-4b54-942c-3295b2e300e2');
+        return new PhotoCentralStorageHub([$simple_linux_storage, $simple_linux_storage_second]);
     }
 
-    private function getImageCacheTestFolder(): string
+    public function setupExpectedProperties()
     {
-        return dirname(__DIR__) . "/data/storage-hub/cache/";
+        $this->expected_photo_colletion_list = [
+            new PhotoCollection(SimpleLinuxStorage::getDefaultPhotoCollectionUuid(), 'Photo folder', true,
+                "Simple Linux Storage folder (".$this->getPhotosTestFolder() ."storage1/)", null),
+            new PhotoCollection('727a8cdc-2275-4b54-942c-3295b2e300e2', 'Photo folder', true,
+                "Simple Linux Storage folder (".$this->getPhotosTestFolder() ."storage2/)", null)
+        ];
+
+        $this->expected_search_string = 'bike';
+        $this->expected_photo_uuid_for_get = '6d1858ef4ee6897f18fc0d0381d92c7d';
+        $this->expected_photo_uuid_list_for_search = ['c9d9287f153e87b4f83cdea7f32db649', 'c9d9287f153e87b4f83cdea7f32db649'];
+        $this->expected_photo_uuid_for_soft_delete = 'fd03f50cb54942882bcdcc4e6b5fffe5';
+        $this->expected_photo_quantity_by_year_list = [
+            new PhotoQuantityYear('2022',2022, 2),
+            new PhotoQuantityYear('2019',2019, 2),
+            new PhotoQuantityYear('2017',2017, 2),
+        ];
+
+        $this->expected_photo_quantity_by_month_list = [
+            new PhotoQuantityMonth('02',2, 2),
+        ];
+        $this->expected_photo_quantity_by_day_list = [
+            new PhotoQuantityDay('11',11, 2),
+        ];
     }
 
     public function setUp(): void
     {
-        $simple_linux_storage = new SimpleLinuxStorage($this->getPhotosTestFolder(),
+        $this->photo_central_storage = $this->initializePhotoCentralStorage();
+        $this->photo_central_storage->initialize();
+        $this->setupExpectedProperties();
+    }
+
+    public function testThrowExceptionIfNotInitialized()
+    {
+        $simple_linux_storage = new SimpleLinuxStorage($this->getPhotosTestFolder() . 'storage1/',
             $this->getImageCacheTestFolder());
-        $simple_linux_storage_second = new SimpleLinuxStorage($this->getPhotosTestFolder(),
-            $this->getImageCacheTestFolder(), '727a8cdc-2275-4b54-942c-3295b2e300e2');
-        $this->storage_hub = new PhotoCentralStorageHub([$simple_linux_storage, $simple_linux_storage_second]);
-        $this->storage_hub->initialize();
+
+        $hub = new PhotoCentralStorageHub([$simple_linux_storage]);
+
+        $this->expectException(PhotoCentralStorageException::class);
+        $hub->listPhotoCollections(10);
     }
 
     public function testDuplicatePhotoCollectionUuid(): void
@@ -49,47 +77,13 @@ class PhotoCentralStorageHubTest extends \PHPUnit\Framework\TestCase
         $storage->initialize();
     }
 
-    public function testListPhotoCollections()
+    private function getPhotosTestFolder(): string
     {
-        $photo_collection_list = $this->storage_hub->listPhotoCollections(2);
-
-        $this->assertCount(2, $photo_collection_list, 'One item in the list is expected');
-        $this->assertEquals(SimpleLinuxStorage::getDefaultPhotoCollectionUuid(), $photo_collection_list[0]->getId(), 'id is expected to be ' . SimpleLinuxStorage::getDefaultPhotoCollectionUuid());
-        $this->assertEquals('Photo folder', $photo_collection_list[0]->getName(),
-            'name is expected to be "Photo folder"');
-        $photo_folder = $this->getPhotosTestFolder();
-        $this->assertEquals("Simple Linux Storage folder ($photo_folder)", $photo_collection_list[0]->getDescription());
+        return dirname(__DIR__) . "/data/storage-hub/photos/";
     }
 
-    public function testlistPhotoQuantityByYear()
+    private function getImageCacheTestFolder(): string
     {
-        $expected = [
-            new PhotoQuantityYear('2022',2022, 4),
-            new PhotoQuantityYear('2019',2019, 2),
-            new PhotoQuantityYear('2017',2017, 2),
-        ];
-
-        $actual = $this->storage_hub->listPhotoQuantityByYear([SimpleLinuxStorage::getDefaultPhotoCollectionUuid()]);
-        $this->assertEquals($expected, $actual);
-    }
-
-    public function testlistPhotoQuantityByMonth()
-    {
-        $expected = [
-            new PhotoQuantityMonth('02',2, 4),
-        ];
-
-        $actual = $this->storage_hub->listPhotoQuantityByMonth(2022, [SimpleLinuxStorage::getDefaultPhotoCollectionUuid()]);
-        $this->assertEquals($expected, $actual);
-    }
-
-    public function testlistPhotoQuantityByDay()
-    {
-        $expected = [
-            new PhotoQuantityDay('11',11, 4),
-        ];
-
-        $actual = $this->storage_hub->listPhotoQuantityByDay(2, 2022, [SimpleLinuxStorage::getDefaultPhotoCollectionUuid()]);
-        $this->assertEquals($expected, $actual);
+        return dirname(__DIR__) . "/data/storage-hub/cache/";
     }
 }

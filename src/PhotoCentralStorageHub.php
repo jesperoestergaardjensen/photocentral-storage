@@ -107,7 +107,11 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
     {
         $this->throwExceptionIfNotInitialized();
 
-        $index = $this->photo_collection_to_storage_map[$photo_collection_id];
+        if (array_key_exists($photo_collection_id, $this->photo_collection_to_storage_map)) {
+            $index = $this->photo_collection_to_storage_map[$photo_collection_id];
+        } else {
+            throw new PhotoCentralStorageException("Photo collection with id $photo_collection_id not found");
+        }
 
         return $this->photo_central_storage_list[$index]->getPhoto($photo_uuid, $photo_collection_id);
     }
@@ -116,26 +120,30 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
     {
         $this->throwExceptionIfNotInitialized();
 
+        $soft_deleted = false;
+
         foreach ($this->photo_central_storage_list as $photo_central_storage) {
             if ($photo_central_storage->softDeletePhoto($photo_uuid) === true) {
-                return true;
+                $soft_deleted = true;
             }
         }
 
-        return false;
+        return $soft_deleted;
     }
 
     public function undoSoftDeletePhoto(string $photo_uuid): bool
     {
         $this->throwExceptionIfNotInitialized();
 
+        $undo_soft_deleted = false;
+
         foreach ($this->photo_central_storage_list as $photo_central_storage) {
             if ($photo_central_storage->undoSoftDeletePhoto($photo_uuid) === true) {
-                return true;
+                $undo_soft_deleted = true;
             }
         }
 
-        return false;
+        return $undo_soft_deleted;
     }
 
     public function listPhotoCollections(int $limit): array
