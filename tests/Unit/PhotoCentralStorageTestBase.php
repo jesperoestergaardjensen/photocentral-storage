@@ -2,8 +2,12 @@
 
 namespace PhotoCentralStorage\Tests\Unit;
 
+use LinuxImageHelper\Model\JpgImage;
+use LinuxImageHelper\Service\JpgImageService;
 use PhotoCentralSimpleLinuxStorage\SimpleLinuxStorage;
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
+use PhotoCentralStorage\Model\ImageDimensions;
+use PhotoCentralStorage\Model\PhotoFilter\PhotoCollectionIdFilter;
 use PhotoCentralStorage\Photo;
 use PhotoCentralStorage\PhotoCentralStorage;
 use PhotoCentralStorage\PhotoCollection;
@@ -25,6 +29,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
     protected ?array $expected_photo_quantity_by_year_list = null;
     protected ?array $expected_photo_quantity_by_month_list = null;
     protected ?array $expected_photo_quantity_by_day_list = null;
+    protected ?array $expected_list_photos_photo_uuid_list = null;
 
     private function preRunTest()
     {
@@ -33,6 +38,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
         }
 
         if (
+            $this->expected_list_photos_photo_uuid_list === null ||
             $this->expected_search_string === null ||
             $this->expected_photo_uuid_for_get === null ||
             $this->expected_photo_colletion_list === null ||
@@ -152,5 +158,58 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
         $this->assertTrue($result);
         $result2 = $this->photo_central_storage->undoSoftDeletePhoto($non_existing_photo_uuid);
         $this->assertFalse($result2);
+    }
+
+    public function testGetPathOrUrlToPhoto()
+    {
+        $this->preRunTest();
+
+        $photo_path_or_url = $this->photo_central_storage->getPathOrUrlToPhoto($this->expected_photo_uuid_for_get, ImageDimensions::createFromId(ImageDimensions::SD_ID), $this->expected_photo_colletion_list[0]->getId());
+        $photo = (new JpgImageService())->createJpg($photo_path_or_url);
+        $this->assertInstanceOf(JpgImage::class, $photo);
+    }
+
+    public function testGetPathOrUrlToCachedPhoto()
+    {
+        $this->preRunTest();
+
+        $photo_path_or_url = $this->photo_central_storage->getPathOrUrlToCachedPhoto($this->expected_photo_uuid_for_get, ImageDimensions::createFromId(ImageDimensions::SD_ID), $this->expected_photo_colletion_list[0]->getId());
+
+        str_replace('.jpg', '', $photo_path_or_url, $count);
+        $this->assertGreaterThan(0, $count);
+        str_replace($this->expected_photo_uuid_for_get, '', $photo_path_or_url, $count);
+        $this->assertGreaterThan(0, $count);
+        str_replace($this->expected_photo_colletion_list[0]->getId(), '', $photo_path_or_url, $count);
+        $this->assertGreaterThan(0, $count);
+        str_replace(ImageDimensions::SD_ID, '', $photo_path_or_url, $count);
+        $this->assertGreaterThan(0, $count);
+    }
+
+    public function testSetAndGetPhotoCache()
+    {
+        $this->preRunTest();
+
+        $cache = '/this/is/a/test/path';
+
+        $cache_before = $this->photo_central_storage->getPhotoCache();
+        $this->assertNotEquals($cache, $cache_before);
+        $this->photo_central_storage->setPhotoCache($cache);
+        $cache_after = $this->photo_central_storage->getPhotoCache();
+        $this->assertEquals($cache, $cache_after);
+    }
+
+    public function testListPhotos()
+    {
+        // TODO : Consider how many tests are needed here since filters are tested individually too
+
+        $this->preRunTest();
+
+        $photo_colleciton_id_list = [];
+        foreach ($this->expected_photo_colletion_list as $expected_photo_collection) {
+            $photo_colleciton_id_list[] = $expected_photo_collection->getId();
+        }
+
+        $photo_list = array_values($this->photo_central_storage->listPhotos([new PhotoCollectionIdFilter($photo_colleciton_id_list)], null, 2));
+        $this->assertEquals($this->expected_list_photos_photo_uuid_list, [$photo_list[0]->getPhotoUuid(), $photo_list[1]->getPhotoUuid()]);
     }
 }

@@ -24,7 +24,7 @@ class PhotoCentralStorageHub implements PhotoCentralStorage
 
     private array $photo_collection_to_storage_map = [];
 
-    private ?string $photo_cache;
+    private ?string $photo_cache = null;
 
     public function __construct(array $photo_central_storage_list)
     {

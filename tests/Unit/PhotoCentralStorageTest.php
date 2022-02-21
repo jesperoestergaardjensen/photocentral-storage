@@ -12,4 +12,7 @@ interface PhotoCentralStorageTest
     public function testlistPhotoQuantityByYear();
     public function testlistPhotoQuantityByMonth();
     public function testlistPhotoQuantityByDay();
+    public function testListPhotos();
+    public function testGetPathOrUrlToPhoto();
+    public function testGetPathOrUrlToCachedPhoto();
 }
