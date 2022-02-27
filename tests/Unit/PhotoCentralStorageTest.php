@@ -15,4 +15,8 @@ interface PhotoCentralStorageTest
     public function testListPhotos();
     public function testGetPathOrUrlToPhoto();
     public function testGetPathOrUrlToCachedPhoto();
+    public function testSoftDeleteExistingPhoto();
+    public function testSoftDeleteNonExistingPhoto();
+    public function testUndoSoftDeleteExistingPhoto();
+    public function testUndoSoftDeleteNonExistingPhoto();
 }

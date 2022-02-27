@@ -7,7 +7,6 @@ use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityDay;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityMonth;
 use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityYear;
-use PhotoCentralStorage\Photo;
 use PhotoCentralStorage\PhotoCentralStorage;
 use PhotoCentralStorage\PhotoCentralStorageHub;
 use PhotoCentralStorage\PhotoCollection;

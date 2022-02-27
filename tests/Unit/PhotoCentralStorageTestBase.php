@@ -146,27 +146,37 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
         $this->assertEquals($this->expected_photo_colletion_list, $photo_collection_list);
     }
 
-    public function testSoftDeletePhoto()
+    public function testSoftDeleteExistingPhoto()
     {
         $this->preRunTest();
 
-        $non_existing_photo_uuid = UUIDService::create();
         $result = $this->photo_central_storage->softDeletePhoto($this->expected_photo_uuid_for_soft_delete);
         $this->assertTrue($result);
+    }
+    public function testSoftDeleteNonExistingPhoto() {
+        $this->preRunTest();
+
+        $non_existing_photo_uuid = UUIDService::create();
         $result2 = $this->photo_central_storage->softDeletePhoto($non_existing_photo_uuid);
         $this->assertFalse($result2);
     }
 
     /**
-     * @depends testSoftDeletePhoto
+     * @depends testSoftDeleteExistingPhoto
      */
-    public function testUndoSoftDeletePhoto()
+    public function testUndoSoftDeleteExistingPhoto()
+    {
+        $this->preRunTest();
+
+        $result = $this->photo_central_storage->undoSoftDeletePhoto($this->expected_photo_uuid_for_soft_delete);
+        $this->assertTrue($result);
+    }
+
+    public function testUndoSoftDeleteNonExistingPhoto()
     {
         $this->preRunTest();
 
         $non_existing_photo_uuid = UUIDService::create();
-        $result = $this->photo_central_storage->undoSoftDeletePhoto($this->expected_photo_uuid_for_soft_delete);
-        $this->assertTrue($result);
         $result2 = $this->photo_central_storage->undoSoftDeletePhoto($non_existing_photo_uuid);
         $this->assertFalse($result2);
     }
