@@ -4,7 +4,6 @@ namespace PhotoCentralStorage\Tests\Unit;
 
 use LinuxImageHelper\Model\JpgImage;
 use LinuxImageHelper\Service\JpgImageService;
-use PhotoCentralSimpleLinuxStorage\SimpleLinuxStorage;
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\ImageDimensions;
 use PhotoCentralStorage\Model\PhotoFilter\PhotoCollectionIdFilter;
@@ -108,14 +107,26 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
     public function testlistPhotoQuantityByMonth()
     {
         $this->preRunTest();
-        $actual = $this->photo_central_storage->listPhotoQuantityByMonth(2022, [SimpleLinuxStorage::getDefaultPhotoCollectionUuid()]);
+
+        $expected_photo_collection_id_list = [];
+        foreach ($this->expected_photo_colletion_list as $expected_photo_collection) {
+            $expected_photo_collection_id_list[] = $expected_photo_collection->getId();
+        }
+
+        $actual = $this->photo_central_storage->listPhotoQuantityByMonth(2022, $expected_photo_collection_id_list);
         $this->assertEquals($this->expected_photo_quantity_by_month_list, $actual);
     }
 
     public function testlistPhotoQuantityByDay()
     {
         $this->preRunTest();
-        $actual = $this->photo_central_storage->listPhotoQuantityByDay(2, 2022, [SimpleLinuxStorage::getDefaultPhotoCollectionUuid()]);
+
+        $expected_photo_collection_id_list = [];
+        foreach ($this->expected_photo_colletion_list as $expected_photo_collection) {
+            $expected_photo_collection_id_list[] = $expected_photo_collection->getId();
+        }
+
+        $actual = $this->photo_central_storage->listPhotoQuantityByDay(2, 2022, $expected_photo_collection_id_list);
         $this->assertEquals($this->expected_photo_quantity_by_day_list, $actual);
     }
 
