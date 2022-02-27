@@ -29,6 +29,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
     protected ?array $expected_photo_quantity_by_month_list = null;
     protected ?array $expected_photo_quantity_by_day_list = null;
     protected ?array $expected_list_photos_photo_uuid_list = null;
+    protected ?string $expected_non_existing_photo_uuid = null;
 
     private function preRunTest()
     {
@@ -37,6 +38,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
         }
 
         if (
+            $this->expected_non_existing_photo_uuid === null ||
             $this->expected_list_photos_photo_uuid_list === null ||
             $this->expected_search_string === null ||
             $this->expected_photo_uuid_for_get === null ||
@@ -86,9 +88,8 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
         $this->assertInstanceOf(Photo::class, $photo);
 
         // Test non-existing photo uuid
-        $non_existing_photo_uuid = UUIDService::create();
         $this->expectException(PhotoCentralStorageException::class);
-        $this->photo_central_storage->getPhoto($non_existing_photo_uuid, array_pop($this->expected_photo_colletion_list)->getId());
+        $this->photo_central_storage->getPhoto($this->expected_non_existing_photo_uuid, array_pop($this->expected_photo_colletion_list)->getId());
     }
 
     public function testlistPhotoQuantityByYear()
@@ -156,8 +157,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
     public function testSoftDeleteNonExistingPhoto() {
         $this->preRunTest();
 
-        $non_existing_photo_uuid = UUIDService::create();
-        $result2 = $this->photo_central_storage->softDeletePhoto($non_existing_photo_uuid);
+        $result2 = $this->photo_central_storage->softDeletePhoto($this->expected_non_existing_photo_uuid);
         $this->assertFalse($result2);
     }
 
@@ -176,8 +176,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
     {
         $this->preRunTest();
 
-        $non_existing_photo_uuid = UUIDService::create();
-        $result2 = $this->photo_central_storage->undoSoftDeletePhoto($non_existing_photo_uuid);
+        $result2 = $this->photo_central_storage->undoSoftDeletePhoto($this->expected_non_existing_photo_uuid);
         $this->assertFalse($result2);
     }
 

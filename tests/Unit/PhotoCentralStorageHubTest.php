@@ -10,6 +10,7 @@ use PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityYear;
 use PhotoCentralStorage\PhotoCentralStorage;
 use PhotoCentralStorage\PhotoCentralStorageHub;
 use PhotoCentralStorage\PhotoCollection;
+use PhotoCentralStorage\Tests\UUIDService;
 
 class PhotoCentralStorageHubTest extends PhotoCentralStorageTestBase
 {
@@ -56,6 +57,8 @@ class PhotoCentralStorageHubTest extends PhotoCentralStorageTestBase
         $this->expected_photo_quantity_by_day_list = [
             new PhotoQuantityDay('11', 11, 2),
         ];
+
+        $this->expected_non_existing_photo_uuid = UUIDService::create();
     }
 
     public function setUp(): void
