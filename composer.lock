@@ -9,29 +9,30 @@
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "d56bf6102915de5702778fe20f2de3b2fe570b5b"
+                "reference": "10dcfce151b967d20fde1b34ae6640712c3891bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/d56bf6102915de5702778fe20f2de3b2fe570b5b",
-                "reference": "d56bf6102915de5702778fe20f2de3b2fe570b5b",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/10dcfce151b967d20fde1b34ae6640712c3891bc",
+                "reference": "10dcfce151b967d20fde1b34ae6640712c3891bc",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^8.0",
+                "doctrine/coding-standard": "^9",
                 "ext-pdo": "*",
                 "ext-phar": "*",
-                "phpbench/phpbench": "^0.13 || 1.0.0-alpha2",
-                "phpstan/phpstan": "^0.12",
-                "phpstan/phpstan-phpunit": "^0.12",
-                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+                "phpbench/phpbench": "^0.16 || ^1",
+                "phpstan/phpstan": "^1.4",
+                "phpstan/phpstan-phpunit": "^1",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
+                "vimeo/psalm": "^4.22"
             },
             "type": "library",
             "autoload": {
@@ -58,7 +59,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/instantiator/issues",
-                "source": "https://github.com/doctrine/instantiator/tree/1.4.0"
+                "source": "https://github.com/doctrine/instantiator/tree/1.4.1"
             },
             "funding": [
                 {
@@ -74,7 +75,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-10T18:47:58+00:00"
+            "time": "2022-03-03T08:28:38+00:00"
         },
         {
             "name": "jesperoestergaardjensen/exif-samples",
@@ -100,16 +101,16 @@
         },
         {
             "name": "jesperoestergaardjensen/linux-file-system-helper",
-            "version": "v1.0.0-beta.3",
+            "version": "v1.0.0-beta.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jesperoestergaardjensen/LinuxFileSystemHelper.git",
-                "reference": "2690e3c7d9643a98dcd7ac50330a221e13627600"
+                "url": "https://github.com/jesperoestergaardjensen/linux-file-system-helper.git",
+                "reference": "dba77cc03a649ce72636bc935fd9d987c404ecdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jesperoestergaardjensen/LinuxFileSystemHelper/zipball/2690e3c7d9643a98dcd7ac50330a221e13627600",
-                "reference": "2690e3c7d9643a98dcd7ac50330a221e13627600",
+                "url": "https://api.github.com/repos/jesperoestergaardjensen/linux-file-system-helper/zipball/dba77cc03a649ce72636bc935fd9d987c404ecdf",
+                "reference": "dba77cc03a649ce72636bc935fd9d987c404ecdf",
                 "shasum": ""
             },
             "require": {
@@ -130,10 +131,10 @@
             ],
             "description": "Small helper to perform Linux file system specific operations",
             "support": {
-                "issues": "https://github.com/jesperoestergaardjensen/LinuxFileSystemHelper/issues",
-                "source": "https://github.com/jesperoestergaardjensen/LinuxFileSystemHelper/tree/v1.0.0-beta.3"
+                "issues": "https://github.com/jesperoestergaardjensen/linux-file-system-helper/issues",
+                "source": "https://github.com/jesperoestergaardjensen/linux-file-system-helper/tree/v1.0.0-beta.4"
             },
-            "time": "2021-11-14T15:25:53+00:00"
+            "time": "2022-03-05T09:39:39+00:00"
         },
         {
             "name": "jesperoestergaardjensen/linux-image-helper",
@@ -179,16 +180,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jesperoestergaardjensen/photocentral-simple-linux-storage.git",
-                "reference": "e2037078fbfab1e0b06586f7b08fdbb40120395f"
+                "reference": "51be534f3d8927051ae64d66aeac801f981a8a9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jesperoestergaardjensen/photocentral-simple-linux-storage/zipball/e2037078fbfab1e0b06586f7b08fdbb40120395f",
-                "reference": "e2037078fbfab1e0b06586f7b08fdbb40120395f",
+                "url": "https://api.github.com/repos/jesperoestergaardjensen/photocentral-simple-linux-storage/zipball/51be534f3d8927051ae64d66aeac801f981a8a9b",
+                "reference": "51be534f3d8927051ae64d66aeac801f981a8a9b",
                 "shasum": ""
             },
             "require": {
-                "jesperoestergaardjensen/linux-file-system-helper": "v1.0.0-beta.3",
+                "jesperoestergaardjensen/linux-file-system-helper": "v1.0.0-beta.4",
                 "jesperoestergaardjensen/linux-image-helper": "v0.1.3",
                 "jesperoestergaardjensen/photocentral-storage": "dev-main",
                 "php": "^7.4"
@@ -212,32 +213,33 @@
                 "issues": "https://github.com/jesperoestergaardjensen/photocentral-simple-linux-storage/issues",
                 "source": "https://github.com/jesperoestergaardjensen/photocentral-simple-linux-storage/tree/main"
             },
-            "time": "2022-02-20T11:46:08+00:00"
+            "time": "2022-03-05T10:42:35+00:00"
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.10.2",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220"
+                "reference": "14daed4296fae74d9e3201d2c4925d1acb7aa614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/776f831124e9c62e1a2c601ecc52e776d8bb7220",
-                "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/14daed4296fae74d9e3201d2c4925d1acb7aa614",
+                "reference": "14daed4296fae74d9e3201d2c4925d1acb7aa614",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0"
             },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
+            "conflict": {
+                "doctrine/collections": "<1.6.8",
+                "doctrine/common": "<2.13.3 || >=3,<3.2.2"
             },
             "require-dev": {
-                "doctrine/collections": "^1.0",
-                "doctrine/common": "^2.6",
-                "phpunit/phpunit": "^7.1"
+                "doctrine/collections": "^1.6.8",
+                "doctrine/common": "^2.13.3 || ^3.2.2",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.23 || ^9.5.13"
             },
             "type": "library",
             "autoload": {
@@ -262,7 +264,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.10.2"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.11.0"
             },
             "funding": [
                 {
@@ -270,7 +272,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-13T09:40:50+00:00"
+            "time": "2022-03-03T13:19:32+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -668,16 +670,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.13",
+            "version": "9.2.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "deac8540cb7bd40b2b8cfa679b76202834fd04e8"
+                "reference": "9f4d60b6afe5546421462b76cd4e633ebc364ab4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/deac8540cb7bd40b2b8cfa679b76202834fd04e8",
-                "reference": "deac8540cb7bd40b2b8cfa679b76202834fd04e8",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9f4d60b6afe5546421462b76cd4e633ebc364ab4",
+                "reference": "9f4d60b6afe5546421462b76cd4e633ebc364ab4",
                 "shasum": ""
             },
             "require": {
@@ -733,7 +735,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.13"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.14"
             },
             "funding": [
                 {
@@ -741,7 +743,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-23T17:02:38+00:00"
+            "time": "2022-02-28T12:38:02+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2053,7 +2055,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.24.0",
+            "version": "v1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -2115,7 +2117,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.24.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.25.0"
             },
             "funding": [
                 {
