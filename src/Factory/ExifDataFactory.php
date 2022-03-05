@@ -108,7 +108,7 @@ class ExifDataFactory
             if (count($part) == 1) {
                 $coordinate[$i] = $part[0];
             } else {
-                if (count($part) == 2) {
+                if (count($part) == 2 && $part[0] !== "0") {
                     $coordinate[$i] = floatval($part[0]) / floatval($part[1]);
                 } else {
                     $coordinate[$i] = 0;
