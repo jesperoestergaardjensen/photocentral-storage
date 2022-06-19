@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1655680610">
-  <project timestamp="1655680610">
+<coverage generated="1655681387">
+  <project timestamp="1655681387">
     <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Exception/ExifFactoryException.php">
       <class name="PhotoCentralStorage\Exception\ExifFactoryException" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -294,12 +294,12 @@
       <class name="PhotoCentralStorage\Model\PhotoSorting\BasicSorting" namespace="global">
         <metrics complexity="5" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="4" elements="8" coveredelements="6"/>
       </class>
-      <line num="18" type="method" name="__construct" visibility="public" complexity="3" crap="3.33" count="8"/>
-      <line num="20" type="stmt" count="8"/>
+      <line num="18" type="method" name="__construct" visibility="public" complexity="3" crap="3.33" count="9"/>
+      <line num="20" type="stmt" count="9"/>
       <line num="21" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="8"/>
-      <line num="29" type="method" name="getDirection" visibility="public" complexity="1" crap="1" count="8"/>
-      <line num="31" type="stmt" count="8"/>
+      <line num="23" type="stmt" count="9"/>
+      <line num="29" type="method" name="getDirection" visibility="public" complexity="1" crap="1" count="9"/>
+      <line num="31" type="stmt" count="9"/>
       <line num="34" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="37" type="stmt" count="2"/>
       <metrics loc="41" ncloc="35" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="4" elements="8" coveredelements="6"/>
@@ -324,11 +324,11 @@
       <class name="PhotoCentralStorage\Model\PhotoSorting\SortByPhotoDateTime" namespace="global">
         <metrics complexity="3" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
       </class>
-      <line num="12" type="method" name="sort" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="14" type="stmt" count="1"/>
+      <line num="12" type="method" name="sort" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="14" type="stmt" count="2"/>
       <line num="15" type="stmt" count="1"/>
-      <line num="17" type="stmt" count="1"/>
-      <line num="21" type="stmt" count="1"/>
+      <line num="17" type="stmt" count="2"/>
+      <line num="21" type="stmt" count="2"/>
       <line num="24" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="26" type="stmt" count="2"/>
       <metrics loc="30" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
@@ -405,8 +405,8 @@
       <line num="170" type="stmt" count="1"/>
       <line num="173" type="stmt" count="1"/>
       <line num="175" type="stmt" count="1"/>
-      <line num="181" type="method" name="getPhotoDateTime" visibility="public" complexity="1" crap="1" count="5"/>
-      <line num="183" type="stmt" count="5"/>
+      <line num="181" type="method" name="getPhotoDateTime" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="183" type="stmt" count="6"/>
       <line num="189" type="method" name="setOverrideDateTime" visibility="public" complexity="4" crap="4" count="1"/>
       <line num="191" type="stmt" count="1"/>
       <line num="192" type="stmt" count="1"/>
@@ -425,7 +425,7 @@
     </file>
     <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/PhotoCentralStorageHub.php">
       <class name="PhotoCentralStorage\PhotoCentralStorageHub" namespace="global">
-        <metrics complexity="46" methods="20" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="97" coveredstatements="92" elements="117" coveredelements="109"/>
+        <metrics complexity="46" methods="20" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="97" coveredstatements="96" elements="117" coveredelements="115"/>
       </class>
       <line num="29" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="16"/>
       <line num="31" type="stmt" count="16"/>
@@ -444,19 +444,19 @@
       <line num="61" type="stmt" count="1"/>
       <line num="63" type="stmt" count="1"/>
       <line num="66" type="stmt" count="1"/>
-      <line num="69" type="method" name="listPhotos" visibility="public" complexity="3" crap="3.02" count="1"/>
+      <line num="69" type="method" name="listPhotos" visibility="public" complexity="3" crap="3" count="1"/>
       <line num="74" type="stmt" count="1"/>
       <line num="76" type="stmt" count="1"/>
       <line num="78" type="stmt" count="1"/>
       <line num="79" type="stmt" count="1"/>
       <line num="81" type="stmt" count="1"/>
       <line num="84" type="stmt" count="1"/>
-      <line num="85" type="stmt" count="0"/>
+      <line num="85" type="stmt" count="1"/>
       <line num="88" type="stmt" count="1"/>
-      <line num="97" type="method" name="sortPhotoList" visibility="private" complexity="2" crap="6" count="0"/>
-      <line num="99" type="stmt" count="0"/>
-      <line num="100" type="stmt" count="0"/>
-      <line num="103" type="stmt" count="0"/>
+      <line num="97" type="method" name="sortPhotoList" visibility="private" complexity="2" crap="2" count="1"/>
+      <line num="99" type="stmt" count="1"/>
+      <line num="100" type="stmt" count="1"/>
+      <line num="103" type="stmt" count="1"/>
       <line num="106" type="method" name="getPhoto" visibility="public" complexity="2" crap="2.03" count="2"/>
       <line num="108" type="stmt" count="2"/>
       <line num="110" type="stmt" count="2"/>
@@ -544,7 +544,7 @@
       <line num="301" type="stmt" count="1"/>
       <line num="304" type="stmt" count="1"/>
       <line num="306" type="stmt" count="1"/>
-      <metrics loc="309" ncloc="271" classes="1" methods="20" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="97" coveredstatements="92" elements="117" coveredelements="109"/>
+      <metrics loc="309" ncloc="271" classes="1" methods="20" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="97" coveredstatements="96" elements="117" coveredelements="115"/>
     </file>
     <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/PhotoCollection.php">
       <class name="PhotoCentralStorage\PhotoCollection" namespace="global">
@@ -583,6 +583,6 @@
       <line num="96" type="stmt" count="1"/>
       <metrics loc="99" ncloc="80" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="31" coveredelements="31"/>
     </file>
-    <metrics files="22" loc="1538" ncloc="1363" classes="17" methods="123" coveredmethods="118" conditionals="0" coveredconditionals="0" statements="336" coveredstatements="327" elements="459" coveredelements="445"/>
+    <metrics files="22" loc="1538" ncloc="1363" classes="17" methods="123" coveredmethods="120" conditionals="0" coveredconditionals="0" statements="336" coveredstatements="331" elements="459" coveredelements="451"/>
   </project>
 </coverage>

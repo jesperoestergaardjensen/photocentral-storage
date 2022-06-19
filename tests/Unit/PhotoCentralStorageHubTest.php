@@ -34,7 +34,7 @@ class PhotoCentralStorageHubTest extends PhotoCentralStorageTestBase
         ];
 
         $this->expected_list_photos_photo_uuid_list = [
-            'fd03f50cb54942882bcdcc4e6b5fffe5',
+            'c9d9287f153e87b4f83cdea7f32db649',
             'c9d9287f153e87b4f83cdea7f32db649',
         ];
 

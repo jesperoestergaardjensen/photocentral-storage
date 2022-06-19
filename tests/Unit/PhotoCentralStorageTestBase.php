@@ -7,6 +7,8 @@ use LinuxImageHelper\Service\JpgImageService;
 use PhotoCentralStorage\Exception\PhotoCentralStorageException;
 use PhotoCentralStorage\Model\ImageDimensions;
 use PhotoCentralStorage\Model\PhotoFilter\PhotoCollectionIdFilter;
+use PhotoCentralStorage\Model\PhotoSorting\BasicSorting;
+use PhotoCentralStorage\Model\PhotoSorting\SortByPhotoDateTime;
 use PhotoCentralStorage\Photo;
 use PhotoCentralStorage\PhotoCentralStorage;
 use PhotoCentralStorage\PhotoCollection;
@@ -228,8 +230,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
         foreach ($this->expected_photo_colletion_list as $expected_photo_collection) {
             $photo_colleciton_id_list[] = $expected_photo_collection->getId();
         }
-
-        $photo_list = array_values($this->photo_central_storage->listPhotos([new PhotoCollectionIdFilter($photo_colleciton_id_list)], null, 2));
+        $photo_list = array_values($this->photo_central_storage->listPhotos([new PhotoCollectionIdFilter($photo_colleciton_id_list)], [new SortByPhotoDateTime(BasicSorting::DESC)], 2));
         $this->assertEquals($this->expected_list_photos_photo_uuid_list, [$photo_list[0]->getPhotoUuid(), $photo_list[1]->getPhotoUuid()]);
     }
 }
