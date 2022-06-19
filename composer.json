@@ -1,11 +1,11 @@
 {
     "name": "jesperoestergaardjensen/photocentral-storage",
     "description": "Repository that define photo storage(s) for PhotoCentral Main",
-    "license": "gpl-3.0",
+    "license": "gpl-3.0-only",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.4",
+        "php": ">=7.4",
         "ext-exif": "*",
         "ext-json": "*"
     },
@@ -26,6 +26,6 @@
         "jesperoestergaardjensen/photocentral-simple-linux-storage": "dev-main"
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "vendor/bin/phpunit tests"
     }
 }

@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1655679699">
+  <project timestamp="1655679699">
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Exception/ExifFactoryException.php">
+      <class name="PhotoCentralStorage\Exception\ExifFactoryException" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="14" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Exception/PhotoCentralStorageException.php">
+      <class name="PhotoCentralStorage\Exception\PhotoCentralStorageException" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Factory/ExifDataFactory.php">
+      <class name="PhotoCentralStorage\Factory\ExifDataFactory" namespace="global">
+        <metrics complexity="29" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="43" elements="50" coveredelements="46"/>
+      </class>
+      <line num="18" type="method" name="createExifData" visibility="public" complexity="8" crap="8" count="23"/>
+      <line num="20" type="stmt" count="23"/>
+      <line num="23" type="stmt" count="19"/>
+      <line num="25" type="stmt" count="19"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="31" type="stmt" count="18"/>
+      <line num="34" type="stmt" count="18"/>
+      <line num="37" type="stmt" count="18"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="40" type="stmt" count="17"/>
+      <line num="43" type="stmt" count="18"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="17"/>
+      <line num="49" type="stmt" count="18"/>
+      <line num="50" type="stmt" count="18"/>
+      <line num="51" type="stmt" count="18"/>
+      <line num="53" type="stmt" count="18"/>
+      <line num="54" type="stmt" count="18"/>
+      <line num="55" type="stmt" count="18"/>
+      <line num="61" type="method" name="createDatePhotoTaken" visibility="private" complexity="8" crap="8" count="18"/>
+      <line num="63" type="stmt" count="18"/>
+      <line num="64" type="stmt" count="17"/>
+      <line num="65" type="stmt" count="17"/>
+      <line num="66" type="stmt" count="1"/>
+      <line num="68" type="stmt" count="17"/>
+      <line num="71" type="stmt" count="17"/>
+      <line num="74" type="stmt" count="10"/>
+      <line num="77" type="stmt" count="18"/>
+      <line num="80" type="method" name="ThrowExceptionIfValidationFails" visibility="private" complexity="5" crap="5" count="23"/>
+      <line num="82" type="stmt" count="23"/>
+      <line num="83" type="stmt" count="1"/>
+      <line num="85" type="stmt" count="22"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="92" type="stmt" count="21"/>
+      <line num="93" type="stmt" count="1"/>
+      <line num="96" type="stmt" count="20"/>
+      <line num="97" type="stmt" count="1"/>
+      <line num="101" type="method" name="getGps" visibility="private" complexity="8" crap="9.00" count="1"/>
+      <line num="103" type="stmt" count="1"/>
+      <line num="104" type="stmt" count="0"/>
+      <line num="106" type="stmt" count="1"/>
+      <line num="107" type="stmt" count="1"/>
+      <line num="108" type="stmt" count="1"/>
+      <line num="109" type="stmt" count="0"/>
+      <line num="111" type="stmt" count="1"/>
+      <line num="112" type="stmt" count="1"/>
+      <line num="114" type="stmt" count="0"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="119" type="stmt" count="1"/>
+      <line num="121" type="stmt" count="1"/>
+      <metrics loc="124" ncloc="111" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="43" elements="50" coveredelements="46"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/ExifData.php">
+      <class name="PhotoCentralStorage\Model\ExifData" namespace="global">
+        <metrics complexity="9" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="25" coveredelements="25"/>
+      </class>
+      <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="19"/>
+      <line num="26" type="stmt" count="19"/>
+      <line num="27" type="stmt" count="19"/>
+      <line num="28" type="stmt" count="19"/>
+      <line num="29" type="stmt" count="19"/>
+      <line num="30" type="stmt" count="19"/>
+      <line num="31" type="stmt" count="19"/>
+      <line num="32" type="stmt" count="19"/>
+      <line num="33" type="stmt" count="19"/>
+      <line num="36" type="method" name="getWidth" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="38" type="stmt" count="11"/>
+      <line num="41" type="method" name="getHeight" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="43" type="stmt" count="11"/>
+      <line num="46" type="method" name="getOrientation" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="48" type="stmt" count="11"/>
+      <line num="51" type="method" name="getExifDateTime" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="53" type="stmt" count="11"/>
+      <line num="56" type="method" name="getCameraBrand" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="58" type="stmt" count="11"/>
+      <line num="61" type="method" name="getCameraModel" visibility="public" complexity="1" crap="1" count="11"/>
+      <line num="63" type="stmt" count="11"/>
+      <line num="66" type="method" name="getLatitude" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="68" type="stmt" count="2"/>
+      <line num="71" type="method" name="getLongitude" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="73" type="stmt" count="2"/>
+      <metrics loc="76" ncloc="76" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="25" coveredelements="25"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/ImageDimensions.php">
+      <class name="PhotoCentralStorage\Model\ImageDimensions" namespace="global">
+        <metrics complexity="8" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="21" coveredelements="21"/>
+      </class>
+      <line num="30" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="32" type="stmt" count="5"/>
+      <line num="33" type="stmt" count="5"/>
+      <line num="34" type="stmt" count="5"/>
+      <line num="40" type="method" name="getHeight" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="42" type="stmt" count="2"/>
+      <line num="48" type="method" name="getWidth" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="50" type="stmt" count="2"/>
+      <line num="56" type="method" name="getId" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="58" type="stmt" count="4"/>
+      <line num="61" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="64" type="stmt" count="1"/>
+      <line num="65" type="stmt" count="1"/>
+      <line num="66" type="stmt" count="1"/>
+      <line num="70" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="72" type="stmt" count="1"/>
+      <line num="78" type="method" name="createFromId" visibility="public" complexity="2" crap="2" count="3"/>
+      <line num="80" type="stmt" count="3"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="84" type="stmt" count="3"/>
+      <line num="85" type="stmt" count="3"/>
+      <metrics loc="88" ncloc="71" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="21" coveredelements="21"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoFilter/AddedTimestampRangeFilter.php">
+      <class name="PhotoCentralStorage\Model\PhotoFilter\AddedTimestampRangeFilter" namespace="global">
+        <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="15" type="stmt" count="4"/>
+      <line num="16" type="stmt" count="4"/>
+      <line num="19" type="method" name="getStartTimestamp" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="21" type="stmt" count="4"/>
+      <line num="24" type="method" name="getEndTimestamp" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="26" type="stmt" count="4"/>
+      <line num="29" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="37" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="38" type="stmt" count="2"/>
+      <metrics loc="40" ncloc="40" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoFilter/CreatedTimestampRangeFilter.php">
+      <class name="PhotoCentralStorage\Model\PhotoFilter\CreatedTimestampRangeFilter" namespace="global">
+        <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="15" type="stmt" count="2"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="19" type="method" name="getStartTimestamp" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="21" type="stmt" count="2"/>
+      <line num="24" type="method" name="getEndTimestamp" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="26" type="stmt" count="2"/>
+      <line num="29" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="37" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="38" type="stmt" count="2"/>
+      <metrics loc="41" ncloc="41" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoFilter/PhotoCollectionIdFilter.php">
+      <class name="PhotoCentralStorage\Model\PhotoFilter\PhotoCollectionIdFilter" namespace="global">
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
+      </class>
+      <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="13" type="stmt" count="4"/>
+      <line num="16" type="method" name="getPhotoCollectionIdList" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="18" type="stmt" count="4"/>
+      <line num="21" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="28" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <metrics loc="33" ncloc="33" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoFilter/PhotoDateTimeRangeFilter.php">
+      <class name="PhotoCentralStorage\Model\PhotoFilter\PhotoDateTimeRangeFilter" namespace="global">
+        <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="15" type="stmt" count="3"/>
+      <line num="16" type="stmt" count="3"/>
+      <line num="19" type="method" name="getStartTimestamp" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="21" type="stmt" count="3"/>
+      <line num="24" type="method" name="getEndTimestamp" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="26" type="stmt" count="3"/>
+      <line num="29" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="37" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="38" type="stmt" count="2"/>
+      <metrics loc="40" ncloc="40" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoFilter/PhotoFilter.php">
+      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoFilter/PhotoUuidFilter.php">
+      <class name="PhotoCentralStorage\Model\PhotoFilter\PhotoUuidFilter" namespace="global">
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
+      </class>
+      <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="13" type="stmt" count="3"/>
+      <line num="16" type="method" name="getPhotoUuidList" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="18" type="stmt" count="3"/>
+      <line num="21" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="28" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <metrics loc="34" ncloc="34" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoQuantity/PhotoQuantityDay.php">
+      <class name="PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityDay" namespace="global">
+        <metrics complexity="8" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="20" coveredelements="20"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="18"/>
+      <line num="15" type="stmt" count="18"/>
+      <line num="16" type="stmt" count="18"/>
+      <line num="17" type="stmt" count="18"/>
+      <line num="20" type="method" name="getDayLabel" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="22" type="stmt" count="1"/>
+      <line num="25" type="method" name="getDayValue" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="27" type="stmt" count="2"/>
+      <line num="30" type="method" name="getQuantity" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="35" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="40" type="stmt" count="1"/>
+      <line num="44" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="49" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="51" type="stmt" count="1"/>
+      <line num="58" type="method" name="setQuantity" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="60" type="stmt" count="2"/>
+      <metrics loc="63" ncloc="60" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="20" coveredelements="20"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoQuantity/PhotoQuantityMonth.php">
+      <class name="PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityMonth" namespace="global">
+        <metrics complexity="8" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="20" coveredelements="20"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="18"/>
+      <line num="15" type="stmt" count="18"/>
+      <line num="16" type="stmt" count="18"/>
+      <line num="17" type="stmt" count="18"/>
+      <line num="20" type="method" name="getMonthLabel" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="22" type="stmt" count="1"/>
+      <line num="25" type="method" name="getMonthValue" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="27" type="stmt" count="2"/>
+      <line num="30" type="method" name="getQuantity" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="35" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="40" type="stmt" count="1"/>
+      <line num="44" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="49" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="51" type="stmt" count="1"/>
+      <line num="57" type="method" name="setQuantity" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="59" type="stmt" count="2"/>
+      <metrics loc="63" ncloc="60" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="20" coveredelements="20"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoQuantity/PhotoQuantityYear.php">
+      <class name="PhotoCentralStorage\Model\PhotoQuantity\PhotoQuantityYear" namespace="global">
+        <metrics complexity="8" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="20" coveredelements="20"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="18"/>
+      <line num="15" type="stmt" count="18"/>
+      <line num="16" type="stmt" count="18"/>
+      <line num="17" type="stmt" count="18"/>
+      <line num="20" type="method" name="getYearLabel" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="22" type="stmt" count="1"/>
+      <line num="25" type="method" name="getYearValue" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="27" type="stmt" count="2"/>
+      <line num="30" type="method" name="getQuantity" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="35" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="40" type="stmt" count="1"/>
+      <line num="44" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="49" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="51" type="stmt" count="1"/>
+      <line num="57" type="method" name="setQuantity" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="59" type="stmt" count="2"/>
+      <metrics loc="62" ncloc="59" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="20" coveredelements="20"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoSorting/BasicSorting.php">
+      <class name="PhotoCentralStorage\Model\PhotoSorting\BasicSorting" namespace="global">
+        <metrics complexity="5" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="4" elements="8" coveredelements="6"/>
+      </class>
+      <line num="18" type="method" name="__construct" visibility="public" complexity="3" crap="3.33" count="8"/>
+      <line num="20" type="stmt" count="8"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="8"/>
+      <line num="29" type="method" name="getDirection" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="31" type="stmt" count="8"/>
+      <line num="34" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="37" type="stmt" count="2"/>
+      <metrics loc="41" ncloc="35" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="4" elements="8" coveredelements="6"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoSorting/PhotoSorting.php">
+      <metrics loc="19" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoSorting/SortByAddedTimestamp.php">
+      <class name="PhotoCentralStorage\Model\PhotoSorting\SortByAddedTimestamp" namespace="global">
+        <metrics complexity="3" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+      </class>
+      <line num="12" type="method" name="sort" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="14" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="1"/>
+      <line num="17" type="stmt" count="1"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="24" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="26" type="stmt" count="2"/>
+      <metrics loc="29" ncloc="25" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Model/PhotoSorting/SortByPhotoDateTime.php">
+      <class name="PhotoCentralStorage\Model\PhotoSorting\SortByPhotoDateTime" namespace="global">
+        <metrics complexity="3" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+      </class>
+      <line num="12" type="method" name="sort" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="14" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="1"/>
+      <line num="17" type="stmt" count="1"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="24" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="26" type="stmt" count="2"/>
+      <metrics loc="30" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Photo.php">
+      <class name="PhotoCentralStorage\Photo" namespace="global">
+        <metrics complexity="26" methods="20" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="61" elements="81" coveredelements="81"/>
+      </class>
+      <line num="38" type="method" name="__construct" visibility="public" complexity="4" crap="4" count="17"/>
+      <line num="51" type="stmt" count="17"/>
+      <line num="52" type="stmt" count="17"/>
+      <line num="53" type="stmt" count="17"/>
+      <line num="54" type="stmt" count="17"/>
+      <line num="55" type="stmt" count="17"/>
+      <line num="56" type="stmt" count="17"/>
+      <line num="57" type="stmt" count="17"/>
+      <line num="58" type="stmt" count="17"/>
+      <line num="59" type="stmt" count="17"/>
+      <line num="60" type="stmt" count="17"/>
+      <line num="61" type="stmt" count="17"/>
+      <line num="63" type="stmt" count="17"/>
+      <line num="64" type="stmt" count="1"/>
+      <line num="66" type="stmt" count="16"/>
+      <line num="70" type="method" name="getPhotoUuid" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="72" type="stmt" count="2"/>
+      <line num="75" type="method" name="getWidth" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="77" type="stmt" count="1"/>
+      <line num="80" type="method" name="getHeight" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="82" type="stmt" count="1"/>
+      <line num="85" type="method" name="getOrientation" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="87" type="stmt" count="2"/>
+      <line num="90" type="method" name="getPhotoCollectionId" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="95" type="method" name="getPhotoAddedDateTime" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="97" type="stmt" count="2"/>
+      <line num="100" type="method" name="getExifDateTime" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="102" type="stmt" count="1"/>
+      <line num="105" type="method" name="getCameraBrand" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="107" type="stmt" count="1"/>
+      <line num="110" type="method" name="getCameraModel" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="112" type="stmt" count="1"/>
+      <line num="119" type="method" name="getPhotoUrl" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="121" type="stmt" count="1"/>
+      <line num="128" type="method" name="setPhotoUrl" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="130" type="stmt" count="1"/>
+      <line num="133" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="135" type="stmt" count="1"/>
+      <line num="138" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="141" type="stmt" count="2"/>
+      <line num="142" type="stmt" count="2"/>
+      <line num="143" type="stmt" count="2"/>
+      <line num="144" type="stmt" count="2"/>
+      <line num="145" type="stmt" count="2"/>
+      <line num="146" type="stmt" count="2"/>
+      <line num="147" type="stmt" count="2"/>
+      <line num="148" type="stmt" count="2"/>
+      <line num="149" type="stmt" count="2"/>
+      <line num="150" type="stmt" count="2"/>
+      <line num="151" type="stmt" count="2"/>
+      <line num="152" type="stmt" count="2"/>
+      <line num="153" type="stmt" count="2"/>
+      <line num="157" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="159" type="stmt" count="1"/>
+      <line num="160" type="stmt" count="1"/>
+      <line num="161" type="stmt" count="1"/>
+      <line num="162" type="stmt" count="1"/>
+      <line num="163" type="stmt" count="1"/>
+      <line num="164" type="stmt" count="1"/>
+      <line num="165" type="stmt" count="1"/>
+      <line num="166" type="stmt" count="1"/>
+      <line num="167" type="stmt" count="1"/>
+      <line num="168" type="stmt" count="1"/>
+      <line num="169" type="stmt" count="1"/>
+      <line num="170" type="stmt" count="1"/>
+      <line num="173" type="stmt" count="1"/>
+      <line num="175" type="stmt" count="1"/>
+      <line num="181" type="method" name="getPhotoDateTime" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="183" type="stmt" count="5"/>
+      <line num="189" type="method" name="setOverrideDateTime" visibility="public" complexity="4" crap="4" count="1"/>
+      <line num="191" type="stmt" count="1"/>
+      <line num="192" type="stmt" count="1"/>
+      <line num="194" type="stmt" count="1"/>
+      <line num="195" type="stmt" count="1"/>
+      <line num="202" type="method" name="getFileSystemDateTime" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="204" type="stmt" count="1"/>
+      <line num="210" type="method" name="getOverrideDateTime" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="212" type="stmt" count="2"/>
+      <line num="215" type="method" name="setOrientation" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="217" type="stmt" count="1"/>
+      <metrics loc="220" ncloc="200" classes="1" methods="20" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="61" elements="81" coveredelements="81"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/PhotoCentralStorage.php">
+      <metrics loc="92" ncloc="52" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/PhotoCentralStorageHub.php">
+      <class name="PhotoCentralStorage\PhotoCentralStorageHub" namespace="global">
+        <metrics complexity="46" methods="20" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="97" coveredstatements="92" elements="117" coveredelements="109"/>
+      </class>
+      <line num="29" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="16"/>
+      <line num="31" type="stmt" count="16"/>
+      <line num="37" type="method" name="initialize" visibility="public" complexity="4" crap="4" count="16"/>
+      <line num="40" type="stmt" count="16"/>
+      <line num="41" type="stmt" count="16"/>
+      <line num="43" type="stmt" count="16"/>
+      <line num="44" type="stmt" count="16"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="16"/>
+      <line num="52" type="stmt" count="16"/>
+      <line num="55" type="method" name="searchPhotos" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="59" type="stmt" count="1"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="61" type="stmt" count="1"/>
+      <line num="63" type="stmt" count="1"/>
+      <line num="66" type="stmt" count="1"/>
+      <line num="69" type="method" name="listPhotos" visibility="public" complexity="3" crap="3.02" count="1"/>
+      <line num="74" type="stmt" count="1"/>
+      <line num="76" type="stmt" count="1"/>
+      <line num="78" type="stmt" count="1"/>
+      <line num="79" type="stmt" count="1"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="84" type="stmt" count="1"/>
+      <line num="85" type="stmt" count="0"/>
+      <line num="88" type="stmt" count="1"/>
+      <line num="97" type="method" name="sortPhotoList" visibility="private" complexity="2" crap="6" count="0"/>
+      <line num="99" type="stmt" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="103" type="stmt" count="0"/>
+      <line num="106" type="method" name="getPhoto" visibility="public" complexity="2" crap="2.03" count="2"/>
+      <line num="108" type="stmt" count="2"/>
+      <line num="110" type="stmt" count="2"/>
+      <line num="111" type="stmt" count="2"/>
+      <line num="113" type="stmt" count="0"/>
+      <line num="116" type="stmt" count="2"/>
+      <line num="119" type="method" name="softDeletePhoto" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="121" type="stmt" count="2"/>
+      <line num="123" type="stmt" count="2"/>
+      <line num="125" type="stmt" count="2"/>
+      <line num="126" type="stmt" count="2"/>
+      <line num="127" type="stmt" count="1"/>
+      <line num="131" type="stmt" count="2"/>
+      <line num="134" type="method" name="undoSoftDeletePhoto" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="136" type="stmt" count="2"/>
+      <line num="138" type="stmt" count="2"/>
+      <line num="140" type="stmt" count="2"/>
+      <line num="141" type="stmt" count="2"/>
+      <line num="142" type="stmt" count="1"/>
+      <line num="146" type="stmt" count="2"/>
+      <line num="149" type="method" name="listPhotoCollections" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="151" type="stmt" count="2"/>
+      <line num="153" type="stmt" count="1"/>
+      <line num="155" type="stmt" count="1"/>
+      <line num="156" type="stmt" count="1"/>
+      <line num="157" type="stmt" count="1"/>
+      <line num="160" type="stmt" count="1"/>
+      <line num="163" type="method" name="getPathOrUrlToPhoto" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="168" type="stmt" count="1"/>
+      <line num="170" type="stmt" count="1"/>
+      <line num="172" type="stmt" count="1"/>
+      <line num="176" type="method" name="getPathOrUrlToCachedPhoto" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="181" type="stmt" count="1"/>
+      <line num="183" type="stmt" count="1"/>
+      <line num="185" type="stmt" count="1"/>
+      <line num="189" type="method" name="setPhotoCache" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="191" type="stmt" count="1"/>
+      <line num="194" type="method" name="getPhotoCache" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="196" type="stmt" count="1"/>
+      <line num="202" type="method" name="throwExceptionIfNotInitialized" visibility="private" complexity="2" crap="2" count="11"/>
+      <line num="204" type="stmt" count="11"/>
+      <line num="205" type="stmt" count="1"/>
+      <line num="209" type="method" name="listPhotoQuantityByYear" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="211" type="stmt" count="1"/>
+      <line num="213" type="stmt" count="1"/>
+      <line num="214" type="stmt" count="1"/>
+      <line num="215" type="stmt" count="1"/>
+      <line num="218" type="stmt" count="1"/>
+      <line num="219" type="stmt" count="1"/>
+      <line num="228" type="method" name="mergeYearQuantityLists" visibility="private" complexity="4" crap="4" count="1"/>
+      <line num="230" type="stmt" count="1"/>
+      <line num="231" type="stmt" count="1"/>
+      <line num="232" type="stmt" count="1"/>
+      <line num="233" type="stmt" count="1"/>
+      <line num="234" type="stmt" count="1"/>
+      <line num="237" type="stmt" count="1"/>
+      <line num="239" type="stmt" count="1"/>
+      <line num="242" type="method" name="listPhotoQuantityByMonth" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="244" type="stmt" count="1"/>
+      <line num="246" type="stmt" count="1"/>
+      <line num="247" type="stmt" count="1"/>
+      <line num="248" type="stmt" count="1"/>
+      <line num="251" type="stmt" count="1"/>
+      <line num="252" type="stmt" count="1"/>
+      <line num="261" type="method" name="mergeMonthQuantityLists" visibility="private" complexity="4" crap="4" count="1"/>
+      <line num="263" type="stmt" count="1"/>
+      <line num="264" type="stmt" count="1"/>
+      <line num="265" type="stmt" count="1"/>
+      <line num="266" type="stmt" count="1"/>
+      <line num="267" type="stmt" count="1"/>
+      <line num="270" type="stmt" count="1"/>
+      <line num="272" type="stmt" count="1"/>
+      <line num="276" type="method" name="listPhotoQuantityByDay" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="278" type="stmt" count="1"/>
+      <line num="280" type="stmt" count="1"/>
+      <line num="281" type="stmt" count="1"/>
+      <line num="282" type="stmt" count="1"/>
+      <line num="285" type="stmt" count="1"/>
+      <line num="286" type="stmt" count="1"/>
+      <line num="295" type="method" name="mergeDayQuantityLists" visibility="private" complexity="4" crap="4" count="1"/>
+      <line num="297" type="stmt" count="1"/>
+      <line num="298" type="stmt" count="1"/>
+      <line num="299" type="stmt" count="1"/>
+      <line num="300" type="stmt" count="1"/>
+      <line num="301" type="stmt" count="1"/>
+      <line num="304" type="stmt" count="1"/>
+      <line num="306" type="stmt" count="1"/>
+      <metrics loc="309" ncloc="271" classes="1" methods="20" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="97" coveredstatements="92" elements="117" coveredelements="109"/>
+    </file>
+    <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/PhotoCollection.php">
+      <class name="PhotoCentralStorage\PhotoCollection" namespace="global">
+        <metrics complexity="9" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="31" coveredelements="31"/>
+      </class>
+      <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="19"/>
+      <line num="22" type="stmt" count="19"/>
+      <line num="23" type="stmt" count="19"/>
+      <line num="24" type="stmt" count="19"/>
+      <line num="25" type="stmt" count="19"/>
+      <line num="26" type="stmt" count="19"/>
+      <line num="32" type="method" name="getId" visibility="public" complexity="1" crap="1" count="17"/>
+      <line num="34" type="stmt" count="17"/>
+      <line num="40" type="method" name="getName" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="42" type="stmt" count="1"/>
+      <line num="48" type="method" name="getDescription" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="50" type="stmt" count="1"/>
+      <line num="56" type="method" name="isEnabled" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="58" type="stmt" count="1"/>
+      <line num="61" type="method" name="toArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="64" type="stmt" count="1"/>
+      <line num="65" type="stmt" count="1"/>
+      <line num="66" type="stmt" count="1"/>
+      <line num="67" type="stmt" count="1"/>
+      <line num="68" type="stmt" count="1"/>
+      <line num="72" type="method" name="fromArray" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="74" type="stmt" count="1"/>
+      <line num="75" type="stmt" count="1"/>
+      <line num="76" type="stmt" count="1"/>
+      <line num="77" type="stmt" count="1"/>
+      <line num="78" type="stmt" count="1"/>
+      <line num="79" type="stmt" count="1"/>
+      <line num="86" type="method" name="getLastUpdated" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="88" type="stmt" count="2"/>
+      <line num="94" type="method" name="setLastUpdated" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="96" type="stmt" count="1"/>
+      <metrics loc="99" ncloc="80" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="31" coveredelements="31"/>
+    </file>
+    <metrics files="22" loc="1538" ncloc="1363" classes="17" methods="123" coveredmethods="118" conditionals="0" coveredconditionals="0" statements="336" coveredstatements="327" elements="459" coveredelements="445"/>
+  </project>
+</coverage>
