@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1655679699">
-  <project timestamp="1655679699">
+<coverage generated="1655680610">
+  <project timestamp="1655680610">
     <file name="/home/jesper_privat/web-udvikling/photocentral-storage-new/src/Exception/ExifFactoryException.php">
       <class name="PhotoCentralStorage\Exception\ExifFactoryException" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>

@@ -52,10 +52,10 @@ class PhotoCentralStorageHubTest extends PhotoCentralStorageTestBase
         ];
 
         $this->expected_photo_quantity_by_month_list = [
-            new PhotoQuantityMonth('02', 2, 2),
+            new PhotoQuantityMonth('06', 6, 2),
         ];
         $this->expected_photo_quantity_by_day_list = [
-            new PhotoQuantityDay('11', 11, 2),
+            new PhotoQuantityDay('19', 19, 2),
         ];
 
         $this->expected_non_existing_photo_uuid = UUIDService::create();
