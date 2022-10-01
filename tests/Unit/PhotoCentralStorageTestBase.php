@@ -128,7 +128,7 @@ abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCent
             $expected_photo_collection_id_list[] = $expected_photo_collection->getId();
         }
 
-        $actual = $this->photo_central_storage->listPhotoQuantityByDay(6, 2022, $expected_photo_collection_id_list);
+        $actual = $this->photo_central_storage->listPhotoQuantityByDay(10, 2022, $expected_photo_collection_id_list);
         $this->assertEquals($this->expected_photo_quantity_by_day_list, $actual);
     }
 
