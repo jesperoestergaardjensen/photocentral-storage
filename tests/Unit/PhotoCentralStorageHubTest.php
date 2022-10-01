@@ -52,7 +52,7 @@ class PhotoCentralStorageHubTest extends PhotoCentralStorageTestBase
         ];
 
         $this->expected_photo_quantity_by_month_list = [
-            new PhotoQuantityMonth('06', 6, 2),
+            new PhotoQuantityMonth('10', 10, 2),
         ];
         $this->expected_photo_quantity_by_day_list = [
             new PhotoQuantityDay('19', 19, 2),
@@ -66,6 +66,9 @@ class PhotoCentralStorageHubTest extends PhotoCentralStorageTestBase
         $this->photo_central_storage = $this->initializePhotoCentralStorage();
         $this->photo_central_storage->initialize();
         $this->setupExpectedProperties();
+
+        // Keep githib action test and local test in sync
+        touch($this->getPhotosTestFolder() . "storage2/mountain-bike-g7d896b93a_640.jpg");
     }
 
     public function testThrowExceptionIfNotInitialized()

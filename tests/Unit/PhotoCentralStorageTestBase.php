@@ -12,7 +12,6 @@ use PhotoCentralStorage\Model\PhotoSorting\SortByPhotoDateTime;
 use PhotoCentralStorage\Photo;
 use PhotoCentralStorage\PhotoCentralStorage;
 use PhotoCentralStorage\PhotoCollection;
-use PhotoCentralStorage\Tests\UUIDService;
 use PHPUnit\Framework\TestCase;
 
 abstract class PhotoCentralStorageTestBase extends TestCase implements PhotoCentralStorageTest
